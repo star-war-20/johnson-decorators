@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy | Johnson Decorators</title>
+    <meta name="description"
+        content="Learn about the heritage, mission, and craftsmanship behind Johnson Decorators. Our dedicated master decorators transform spaces with precision and passion.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#F5A623',
+                        'brand-gold': '#F5A623',
+                        'brand-dark': '#1a1a1a',
+                        'brand-darker': '#111111',
+                        'brand-teal': '#1a4548',
+                        'brand-blue': '#0d6efd',
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announcement-bar {
+            background: linear-gradient(90deg, #F5A623 0%, #f0c143 50%, #F5A623 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ===== NAVBAR ===== */
+        .main-nav {
+            background: #111111;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link-custom {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #F5A623;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link-custom:hover::after { width: 100%; }
+        .nav-link-custom:hover { color: #F5A623 !important; }
+
+        /* ===== HERO SECTION ===== */
+        .about-hero {
+            position: relative;
+            height: 500px;
+            background: url('images/PHOTO-2026-03-12-11-58-44 2.jpg') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .about-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            z-index: 1;
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== STORY SECTION ===== */
+        .story-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            border-radius: 40px;
+            padding: 60px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .story-img-container {
+            position: relative;
+            height: 100%;
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .story-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s cubic-bezier(0.2, 0, 0.2, 1);
+        }
+
+        .story-section:hover .story-img {
+            transform: scale(1.05);
+        }
+
+        .experience-badge {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            background: #F5A623;
+            color: black;
+            padding: 25px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(245, 166, 35, 0.3);
+            text-align: center;
+            z-index: 10;
+        }
+
+        /* ===== LIQUID BLOBS ===== */
+        .liquid-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.25;
+            z-index: -1;
+            animation: blob-float 8s ease-in-out infinite;
+        }
+
+        @keyframes blob-float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(40px, -30px) scale(1.1); }
+        }
+
+        /* ===== MISSION SECTION ===== */
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 60px 0;
+        }
+
+        .mission-card {
+            background: #fff;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #f0f0f0;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mission-card:hover {
+            transform: translateY(-10px);
+            border-color: #F5A623;
+            box-shadow: 0 15px 40px rgba(245, 166, 35, 0.1);
+        }
+
+        /* ===== FOOTER ===== */
+        .main-footer {
+            background: #111111;
+            color: #ffffff;
+            padding: 80px 0 30px;
+        }
+
+        .footer-link {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #F5A623;
+            transform: translateX(8px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #999;
+            font-size: 16px;
+        }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+
+        /* ===== WHATSAPP ===== */
+        
+
+        
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #111111;
+            padding: 20px;
+            z-index: 100;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        /* ===== WHAT WE DO SECTION ===== */
+        .what-we-do {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .wwd-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 60px;
+        }
+
+        .wwd-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.1;
+        }
+
+        .wwd-view-all {
+            color: #1a1a1a;
+            font-weight: 700;
+            text-decoration: underline;
+            text-underline-offset: 6px;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .wwd-view-all:hover {
+            color: #F5A623;
+        }
+
+        .wwd-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .service-card-mini {
+            display: flex;
+            background: #f9f9f9;
+            border-radius: 24px;
+            overflow: hidden;
+            border: 1px solid #eee;
+            transition: all 0.4s ease;
+            min-height: 240px;
+        }
+
+        .service-card-mini.dark {
+            background: #111111;
+            color: #ffffff;
+            border-color: #222;
+        }
+
+        .service-card-mini:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+        }
+
+        .wwd-content {
+            flex: 1;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .wwd-card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .wwd-card-desc {
+            font-size: 14px;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .service-card-mini.dark .wwd-card-desc {
+            color: #999;
+        }
+
+        .wwd-read-more {
+            font-weight: 700;
+            font-size: 13px;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .wwd-img-wrap {
+            width: 45%;
+            overflow: hidden;
+        }
+
+        .wwd-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 1023px) {
+            .wwd-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 639px) {
+            .service-card-mini {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .wwd-img-wrap {
+                width: 100%;
+                height: 200px;
+            }
+            .wwd-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div class="announcement-bar py-2 text-center">
+        <a href="contact.html"
+            class="block text-center py-0.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide">
+            <i class="fa-solid fa-paintbrush mr-2"></i>
+            Call Now &amp; Get 15% OFF On Your First Wall Painting Project!
+            <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="main-nav py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center no-underline">
+                    <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[130px] w-auto object-contain" loading="lazy">
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Home</a>
+                    <a href="about.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="services.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline flex items-center gap-2">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                            <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                            <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                            <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                            <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                            <a href="plastering.html" class="dropdown-link">Plastering</a>
+                            <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                            <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Portfolio</a>
+                    <a href="blog.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Blog</a>
+                    <a href="contact.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg no-underline hover:bg-yellow-400 transition-all">
+                        FREE QUOTE <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="lg:hidden text-white text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html" class="text-brand-yellow">About Us</a>
+            <a href="services.html">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <div class="mt-6">
+                <a href="contact.html" class="block w-full text-center bg-brand-yellow text-black font-bold py-3 rounded-lg">Get Free Quote</a>
+            </div>
+        </div>
+    </nav>
+    <section class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-4xl md:text-6xl font-heading font-bold text-brand-dark mb-10 text-center">Cookie Policy</h1>
+            <div class="prose prose-lg max-w-none text-gray-600 leading-relaxed space-y-8">
+                
+                <div class="policy-content">
+                    <p class="mb-6">Last updated: April 20, 2026</p>
+                    <p class="mb-6">This Cookie Policy explains how Johnson Decorators uses cookies and similar technologies to recognize you when you visit our website. It explains what these technologies are and why we use them, as well as your rights to control our use of them.</p>
+                    
+                    <h3 class="text-2xl font-bold text-brand-dark mt-8 mb-4">1. What are Cookies?</h3>
+                    <p class="mb-4">Cookies are small data files that are placed on your computer or mobile device when you visit a website. Cookies are widely used by website owners in order to make their websites work, or to work more efficiently, as well as to provide reporting information.</p>
+                    
+                    <h3 class="text-2xl font-bold text-brand-dark mt-8 mb-4">2. Why do we use Cookies?</h3>
+                    <p class="mb-4">We use first-party and third-party cookies for several reasons. Some cookies are required for technical reasons in order for our website to operate, and we refer to these as "essential" or "strictly necessary" cookies. Other cookies also enable us to track and target the interests of our users to enhance the experience on our online properties.</p>
+                    
+                    <h3 class="text-2xl font-bold text-brand-dark mt-8 mb-4">3. Types of Cookies We Use</h3>
+                    <ul class="list-disc pl-6 space-y-2 mb-6">
+                        <li><strong>Essential Cookies:</strong> These cookies are strictly necessary to provide you with services available through our website and to use some of its features.</li>
+                        <li><strong>Performance and Functionality Cookies:</strong> These cookies are used to enhance the performance and functionality of our website but are non-essential to their use.</li>
+                        <li><strong>Analytics and Customization Cookies:</strong> These cookies collect information that is used either in aggregate form to help us understand how our website is being used or how effective our marketing campaigns are.</li>
+                    </ul>
+
+                    <h3 class="text-2xl font-bold text-brand-dark mt-8 mb-4">4. How can I control Cookies?</h3>
+                    <p class="mb-4">You have the right to decide whether to accept or reject cookies. You can set or amend your web browser controls to accept or refuse cookies. If you choose to reject cookies, you may still use our website though your access to some functionality and areas of our website may be restricted.</p>
+                    
+                    <h3 class="text-2xl font-bold text-brand-dark mt-8 mb-4">5. Updates to this Cookie Policy</h3>
+                    <p class="mb-4">We may update this Cookie Policy from time to time in order to reflect, for example, changes to the cookies we use or for other operational, legal or regulatory reasons.</p>
+
+                    <div class="mt-12 p-8 bg-gray-50 rounded-2xl border border-gray-200">
+                        <h3 class="text-2xl font-bold text-brand-dark mb-4">Contact Us</h3>
+                        <p class="mb-2">If you have any questions about our use of cookies or other technologies, please contact us:</p>
+                        <ul class="space-y-2">
+                            <li><strong>Email:</strong> johnsondecoratorsltd@gmail.com</li>
+                            <li><strong>Phone:</strong> <a href="tel:+447827931007" class="text-brand-dark hover:text-brand-yellow font-bold transition-colors">07827931007</a></li>
+                            <li><strong>Address:</strong> 122 Grayling Wy, Ryton NE40 3BZ</li>
+                        </ul>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+    </section>
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="animate-fade-in">
+                    <div class="footer-logo">
+                        <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[120px] w-auto object-contain" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We transform ordinary spaces into extraordinary masterpieces with premium materials, artistic
+                        precision, and unmatched professionalism.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jjohnsondecorators" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://uk.pinterest.com/johnsondecorators/" target="_blank" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://wa.me/+447827931007" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <a href="interior-painting.html" class="footer-link">Interior Painting</a>
+                    <a href="exterior-painting.html" class="footer-link">Exterior Painting</a>
+                    <a href="wallpapering.html" class="footer-link">Wallpapering</a>
+                    <a href="plastering.html" class="footer-link">Plastering</a>
+                    <a href="wood-painting.html" class="footer-link">Wood Painting</a>
+                    <a href="school-colleges-painting.html" class="footer-link">School and Colleges Painting</a>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                    <a href="terms-and-conditions.html" class="footer-link">Terms of Service</a>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:+447827931007" class="hover:text-brand-yellow transition-colors">07827931007</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>johnsondecoratorsltd@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+                <p>Design and Developed by <a href="https://kyleinfotech.co.in/"
+                        class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <!-- lightGallery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <script>
+        // Initialize lightGallery for About Page
+        document.querySelectorAll('.wwd-grid, .story-section').forEach(el => {
+            lightGallery(el, {
+                plugins: [lgZoom, lgThumbnail],
+                selector: '.lightgallery-item',
+                download: false,
+                speed: 500
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+

@@ -1,0 +1,986 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Contact Us | Johnson Decorators - Premium Painting & Decoration
+    </title>
+    <meta
+      name="description"
+      content="Get in touch with Johnson Decorators for premium wall painting and home decoration. Request a free quote, visit our office, or call us today."
+    />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "brand-yellow": "#F5A623",
+              "brand-gold": "#F5A623",
+              "brand-dark": "#1a1a1a",
+              "brand-darker": "#111111",
+              "brand-teal": "#1a4548",
+              "brand-blue": "#0d6efd",
+            },
+            fontFamily: {
+              heading: ["Playfair Display", "serif"],
+              body: ["Montserrat", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      crossorigin="anonymous"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        font-size: 17px;
+        overflow-x: hidden;
+        background: #ffffff;
+      }
+
+      /* ===== ANNOUNCEMENT BAR ===== */
+      .announcement-bar {
+        background: linear-gradient(
+          90deg,
+          #f5a623 0%,
+          #f0c143 50%,
+          #f5a623 100%
+        );
+        animation: shimmer 3s ease-in-out infinite;
+      }
+
+      @keyframes shimmer {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      /* ===== NAVBAR ===== */
+      .main-nav {
+        background: #111111;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      .nav-link-custom {
+        position: relative;
+        transition: color 0.3s ease;
+      }
+
+      .nav-link-custom::after {
+        content: "";
+        position: absolute;
+        bottom: -4px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background: #f5a623;
+        transition: all 0.3s ease;
+        transform: translateX(-50%);
+      }
+
+      .nav-link-custom:hover::after {
+        width: 100%;
+      }
+
+      .nav-link-custom:hover {
+        color: #f5a623 !important;
+      }
+
+      .logo-text {
+        border: 2.5px solid white;
+        border-radius: 8px;
+        padding: 6px 16px;
+        line-height: 1.1;
+      }
+
+      /* ===== HERO SECTION ===== */
+      .contact-hero {
+        position: relative;
+        height: 450px;
+        background: url("images/IMG_3192 (1).jpeg") center center / cover
+          no-repeat;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        color: white;
+      }
+
+      .contact-hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.75),
+          rgba(0, 0, 0, 0.45)
+        );
+        z-index: 1;
+      }
+
+      .contact-hero-content {
+        position: relative;
+        z-index: 2;
+      }
+
+      /* ===== CONTACT CARDS ===== */
+      .contact-card {
+        background: #ffffff;
+        border-radius: 24px;
+        padding: 30px 20px;
+        text-align: center;
+        border: 1px solid #f0f0f0;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.08);
+        border-color: rgba(245, 166, 35, 0.3);
+      }
+
+      .contact-card a,
+      .contact-card span {
+        display: block;
+      }
+
+      .contact-icon-box {
+        width: 70px;
+        height: 70px;
+        background: rgba(245, 166, 35, 0.1);
+        color: #f5a623;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        margin: 0 auto 25px;
+        transition: all 0.3s ease;
+      }
+
+      .contact-card:hover .contact-icon-box {
+        background: #f5a623;
+        color: #1a1a1a;
+        transform: scale(1.1) rotate(8deg);
+      }
+
+      /* ===== CONTACT FORM ===== */
+      .contact-form-section {
+        padding: 100px 0;
+        background: #fdfdfd;
+      }
+
+      .form-container {
+        background: #ffffff;
+        border-radius: 40px;
+        overflow: hidden;
+        box-shadow: 0 40px 100px rgba(0, 0, 0, 0.06);
+        border: 1px solid #f0f0f0;
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+
+      @media (min-width: 1024px) {
+        .form-container {
+          grid-template-columns: 1.2fr 0.8fr;
+        }
+      }
+
+      .form-body {
+        padding: 60px;
+      }
+
+      .form-info-pane {
+        background: #111111;
+        padding: 60px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+
+      .input-group {
+        margin-bottom: 25px;
+      }
+
+      .input-label {
+        display: block;
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 10px;
+        color: #1a1a1a;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 18px 25px;
+        background: #f8f8f8;
+        border: 1px solid #eee;
+        border-radius: 12px;
+        font-family: "Montserrat", sans-serif;
+        font-size: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .form-input:focus {
+        outline: none;
+        background: #fff;
+        border-color: #f5a623;
+        box-shadow: 0 10px 25px rgba(245, 166, 35, 0.1);
+      }
+
+      .submit-btn-premium {
+        background: #f5a623;
+        color: #1a1a1a;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 15px;
+        padding: 20px 40px;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        transition: all 0.4s ease;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .submit-btn-premium:hover {
+        background: #111111;
+        color: #f5a623;
+        transform: translateY(-3px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      /* ===== SERVICES WE PROVIDE ===== */
+      .services-provide-section {
+        position: relative;
+        background: #f4f4f4;
+        padding: 100px 0;
+        overflow: hidden;
+      }
+
+      .services-watermark {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        pointer-events: none;
+        user-select: none;
+        gap: 0;
+      }
+
+      .services-watermark span {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(60px, 10vw, 130px);
+        font-weight: 900;
+        color: rgba(0, 0, 0, 0.04);
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        line-height: 1;
+        white-space: nowrap;
+      }
+
+      .service-node {
+        text-align: center;
+        padding: 40px 20px;
+        transition: all 0.3s ease;
+      }
+
+      .service-node:hover {
+        transform: translateY(-6px);
+      }
+
+      .service-node-icon {
+        font-size: 48px;
+        color: #4361ee;
+        margin-bottom: 20px;
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .service-node:hover .service-node-icon {
+        transform: scale(1.15);
+      }
+
+      .service-node h3 {
+        font-size: 18px;
+        font-weight: 800;
+        color: #1a1a1a;
+        letter-spacing: 0.02em;
+      }
+
+      /* ===== MAP SECTION ===== */
+      .map-section {
+        height: 500px;
+        background: #eee;
+        position: relative;
+      }
+
+      /* ===== FOOTER ===== */
+      .main-footer {
+        background: #111111;
+        color: #ffffff;
+        padding: 80px 0 30px;
+      }
+
+      .footer-heading {
+        font-family: "Playfair Display", serif;
+        font-size: 20px;
+        font-weight: 700;
+        margin-bottom: 30px;
+        color: #ffffff;
+      }
+
+      .footer-link {
+        display: block;
+        color: #999;
+        margin-bottom: 15px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .footer-link:hover {
+        color: #f5a623;
+        padding-left: 8px;
+      }
+
+      .social-btn {
+        width: 45px;
+        height: 45px;
+        background: #222;
+        color: white;
+        border-radius: 12px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+      }
+
+      .social-btn:hover {
+        background: #f5a623;
+        color: #111;
+        transform: translateY(-5px);
+      }
+
+      /* ===== WHATSAPP ===== */
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .mobile-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #111111;
+        padding: 30px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 999;
+      }
+
+      .mobile-menu.active {
+        display: block;
+      }
+
+      .mobile-menu a {
+        display: block;
+        color: white;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        text-decoration: none;
+      }
+
+      /* Dropdown Styling */
+      .nav-dropdown {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          background: #111111;
+          min-width: 260px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(15px);
+          transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+          border-top: 3px solid #F5A623;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+          padding: 12px 0;
+          z-index: 100;
+          border-radius: 0 0 8px 8px;
+      }
+
+      .group:hover .nav-dropdown {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+      }
+
+      .dropdown-link {
+          display: block;
+          padding: 12px 25px;
+          color: #999;
+          text-decoration: none;
+          font-size: 14px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+      }
+
+      .dropdown-link:hover {
+          background: rgba(245, 166, 35, 0.08);
+          color: #F5A623;
+          padding-left: 32px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div class="announcement-bar">
+      <a
+        href="contact.html"
+        class="block text-center py-2.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide"
+      >
+        <i class="fa-solid fa-paintbrush mr-2"></i>
+        Call Now & Get 15% OFF On Your First Wall Painting Project!
+        <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+      </a>
+    </div>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="main-nav">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20">
+          <!-- Logo -->
+          <a href="index.html" class="flex-shrink-0 no-underline">
+            <img
+              src="images/logojn.png"
+              alt="Johnson Decorators Logo"
+              class="h-[130px] w-auto object-contain"
+              loading="lazy"
+            />
+          </a>
+
+          <!-- Desktop Nav Links -->
+          <div class="hidden lg:flex items-center space-x-10">
+            <a
+              href="index.html"
+              class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline"
+              >Home</a
+            >
+            <a
+              href="about.html"
+              class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline"
+              >About Us</a
+            >
+            
+            <!-- Services Dropdown -->
+            <div class="relative group h-20 flex items-center">
+                <a href="services.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline flex items-center gap-2">
+                    Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                </a>
+                <div class="nav-dropdown">
+                    <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                    <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                    <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                    <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                    <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                    <a href="plastering.html" class="dropdown-link">Plastering</a>
+                    <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                    <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                </div>
+            </div>
+
+            <a
+              href="portfolio.html"
+              class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline"
+              >Portfolio</a
+            >
+            <a
+              href="blog.html"
+              class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline"
+              >Blog</a
+            >
+            <a
+              href="contact.html"
+              class="nav-link-custom text-brand-yellow font-bold text-[15px] no-underline"
+              >Contact</a
+            >
+          </div>
+
+          <!-- CTA Button -->
+          <div class="hidden lg:block">
+            <a
+              href="contact.html"
+              class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg no-underline hover:bg-yellow-400 transition-all"
+            >
+              FREE QUOTE <i class="fa-solid fa-chevron-right text-[10px]"></i>
+            </a>
+          </div>
+
+          <!-- Mobile Hamburger -->
+          <button id="mobileMenuBtn" class="lg:hidden text-white text-2xl">
+            <i class="fa-solid fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="mobile-menu">
+          <a href="index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="blog.html">Blog</a>
+          <a href="contact.html" class="text-brand-yellow">Contact</a>
+          <a
+            href="contact.html"
+            class="inline-block mt-4 bg-brand-yellow text-black font-bold px-8 py-3 rounded-lg"
+            >Get Free Quote</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="contact-hero">
+      <div class="contact-hero-overlay"></div>
+      <div class="contact-hero-content container mx-auto px-4">
+        <span
+          class="block text-brand-yellow font-bold uppercase tracking-[0.4em] mb-4 text-sm"
+          >Get In Touch</span
+        >
+        <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6">
+          Let's Colors Your <br />
+          <span class="text-brand-yellow italic">World Together</span>
+        </h1>
+        <div class="flex justify-center items-center gap-4 text-sm font-medium">
+          <a href="index.html" class="hover:text-brand-yellow transition-colors"
+            >Home</a
+          >
+          <i class="fa-solid fa-chevron-right text-[10px] text-gray-500"></i>
+          <span class="text-gray-400">Contact Us</span>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== INFO CARDS SECTION ==================== -->
+    <section class="py-24 bg-white relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Card 1: Phone -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <i class="fa-solid fa-phone-volume"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 font-heading">Call Us</h3>
+            <p class="text-gray-500 text-sm mb-2">Technical Support</p>
+            <a
+              href="tel:+447827931007"
+              class="text-brand-dark font-bold hover:text-brand-yellow transition-colors"
+              >07827931007</a
+            >
+          </div>
+
+          <!-- Card 2: Email -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <i class="fa-solid fa-envelope-open-text"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 font-heading">Email Us</h3>
+            <p class="text-gray-500 text-sm mb-2">Query & Feedback</p>
+            <a
+              href="mailto:johnsondecoratorsltd@gmail.com"
+              class="text-brand-dark font-bold hover:text-brand-yellow transition-colors whitespace-nowrap text-sm"
+              >johnsondecoratorsltd@gmail.com</a
+            >
+          </div>
+
+          <!-- Card 3: Address -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <i class="fa-solid fa-location-dot"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 font-heading">Visit Us</h3>
+            <p class="text-gray-500 text-sm mb-2">Our Head Office</p>
+            <span class="text-brand-dark font-bold leading-relaxed"
+              >122 Grayling Wy, Ryton NE40 3BZ</span
+            >
+          </div>
+
+          <!-- Card 4: Hours -->
+          <div class="contact-card">
+            <div class="contact-icon-box">
+              <i class="fa-solid fa-clock"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-4 font-heading">Work Hours</h3>
+            <p class="text-gray-500 text-sm mb-2">Opening Sessions</p>
+            <span class="text-brand-dark font-bold">Mon - Sat: 9am - 6pm</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== CONTACT FORM SECTION ==================== -->
+    <section class="contact-form-section">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="form-container">
+          <!-- Left: Form -->
+          <div class="form-body">
+            <div class="mb-12">
+              <h2 class="text-4xl font-heading font-bold text-brand-dark mb-4">
+                Send us a <span class="text-brand-yellow italic">Message</span>
+              </h2>
+              <p class="text-gray-500 leading-relaxed">
+                Have a project in mind or need expert advice? Fill out the form
+                below and our team will get back to you within 24 hours.
+              </p>
+            </div>
+
+            <form action="#">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="input-group">
+                  <label class="input-label">Your Name</label>
+                  <input
+                    type="text"
+                    class="form-input"
+                    placeholder="e.g. John Doe"
+                    required
+                  />
+                </div>
+                <div class="input-group">
+                  <label class="input-label">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-input"
+                    placeholder="john@example.com"
+                    required
+                  />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="input-group">
+                  <label class="input-label">Phone Number</label>
+                  <input
+                    type="tel"
+                    class="form-input"
+                    placeholder="07827931007"
+                  />
+                </div>
+                <div class="input-group">
+                  <label class="input-label">Subject</label>
+                  <select class="form-input">
+                    <option>General Inquiry</option>
+                    <option>Request a Quote</option>
+                    <option>Interior Painting</option>
+                    <option>Exterior Painting</option>
+                    <option>Wallpapering</option>
+                    <option>Plastering</option>
+                    <option>Wood Panelling</option>
+                    <option>School and Colleges Painting</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="input-group">
+                <label class="input-label">How can we help?</label>
+                <textarea
+                  class="form-input h-40 resize-none"
+                  placeholder="Describe your project requirements..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="submit-btn-premium">
+                Send My Message <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+
+          <!-- Right: Info Pane -->
+          <div class="form-info-pane">
+            <div>
+              <h3 class="text-3xl font-heading font-bold mb-8">
+                Direct Contact Info
+              </h3>
+              <p class="text-gray-400 mb-10 leading-relaxed">
+                Prefer the traditional way? Call us or visit our office directly
+                for an immediate consultation with our master decorators.
+              </p>
+
+              <div class="space-y-8">
+                <div class="flex items-start gap-4">
+                  <div class="text-brand-yellow text-xl mt-1">
+                    <i class="fa-solid fa-map-pin"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg mb-1">Office Location</h4>
+                    <p class="text-gray-400 text-sm">
+                      122 Grayling Wy, Ryton NE40 3BZ
+                    </p>
+                  </div>
+                </div>
+                <div class="flex items-start gap-4">
+                  <div class="text-brand-yellow text-xl mt-1">
+                    <i class="fa-solid fa-headset"></i>
+                  </div>
+                  <div>
+                    <h4 class="font-bold text-lg mb-1">Customer Support</h4>
+                    <p class="text-gray-400 text-sm">
+                      <a
+                        href="tel:+447827931007"
+                        class="hover:text-brand-yellow transition-colors font-bold"
+                        >07827931007</a
+                      ><br />Mon-Sat, 9am - 6pm
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="mt-12 pt-12 border-t border-white/10">
+              <h4 class="font-bold mb-6">Stay Connected</h4>
+              <div class="flex gap-4">
+                <a
+                  href="https://www.facebook.com/jjohnsondecorators"
+                  target="_blank"
+                  class="social-btn"
+                  ><i class="fa-brands fa-facebook-f"></i
+                ></a>
+                <a
+                  href="https://uk.pinterest.com/johnsondecorators/"
+                  target="_blank"
+                  class="social-btn"
+                  ><i class="fa-brands fa-pinterest"></i
+                ></a>
+                <a
+                  href="https://wa.me/+447827931007"
+                  target="_blank"
+                  class="social-btn"
+                  ><i class="fa-brands fa-whatsapp"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr"
+                  target="_blank"
+                  class="social-btn"
+                  ><i class="fa-brands fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ==================== MAP SECTION ==================== -->
+    <section class="map-section">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1911.573739035283!2d-1.7689959238966457!3d54.96766475219082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487dd975ada114ed%3A0x412f42a4d0f2ff6b!2sJohnson%20Decorators%20ltd!5e1!3m2!1sen!2sin!4v1776769382537!5m2!1sen!2sin"
+        width="100%"
+        height="490"
+        style="border: 0"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+    </section>
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="main-footer">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <!-- Column 1: Brand -->
+          <div class="animate-fade-in">
+            <div class="footer-logo">
+              <img
+                src="images/logojn.png"
+                alt="Johnson Decorators Logo"
+                class="h-[120px] w-auto object-contain"
+              />
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed mb-6">
+              We transform ordinary spaces into extraordinary masterpieces with
+              premium materials, artistic precision, and unmatched
+              professionalism. All Rights Reserved.
+            </p>
+            <div class="social-links">
+              <a
+                href="https://www.facebook.com/jjohnsondecorators"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://uk.pinterest.com/johnsondecorators/"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-pinterest"></i
+              ></a>
+              <a
+                href="https://wa.me/+447827931007"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Services -->
+          <div>
+            <h4 class="footer-heading">Our Services</h4>
+            <a href="commercial-painting.html" class="footer-link"
+              >Interior Painting</a
+            >
+            <a href="interior-painting.html" class="footer-link"
+              >Exterior Painting</a
+            >
+            <a href="interior-painting.html" class="footer-link"
+              >Wallpapering</a
+            >
+            <a href="commercial-painting.html" class="footer-link"
+              >Plastering</a
+            >
+            <a href="commercial-painting.html" class="footer-link"
+              >Wood Panelling</a
+            >
+            <a href="commercial-painting.html" class="footer-link"
+              >School and Colleges Painting</a
+            >
+          </div>
+
+          <!-- Column 3: Quick Links -->
+          <div>
+            <h4 class="footer-heading">Quick Links</h4>
+            <a href="index.html" class="footer-link">Home</a>
+            <a href="about.html" class="footer-link">About Us</a>
+            <a href="services.html" class="footer-link">Services</a>
+            <a href="portfolio.html" class="footer-link">Portfolio</a>
+            <a href="blog.html" class="footer-link">Blog</a>
+            <a href="contact.html" class="footer-link">Contact Us</a>
+            <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+            <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+            <a href="terms-and-conditions.html" class="footer-link"
+              >Terms of Service</a
+            >
+          </div>
+
+          <!-- Column 4: Contact -->
+          <div>
+            <h4 class="footer-heading">Get In Touch</h4>
+            <div class="footer-contact-item" style="font-size: 16px; display: flex; align-items: center; gap: 10px; color: #999; margin-bottom: 10px;">
+              <i class="fa-solid fa-phone" style="color: #f5a623;"></i>
+              <span><a href="tel:+447827931007" style="color: inherit; text-decoration: none;">07827931007</a></span>
+            </div>
+            <div class="footer-contact-item" style="font-size: 16px; display: flex; align-items: center; gap: 10px; color: #999; margin-bottom: 10px;">
+              <i class="fa-solid fa-envelope" style="color: #f5a623;"></i>
+              <span>johnsondecoratorsltd@gmail.com</span>
+            </div>
+          </div>
+                ><a
+                  href="tel:+447827931007"
+                  class="hover:text-brand-yellow transition-colors"
+                  >07827931007</a
+                ></span
+              >
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-envelope"></i>
+              <span>johnsondecoratorsltd@gmail.com</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-location-dot"></i>
+              <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+            </div>
+            <div class="footer-contact-item">
+              <i class="fa-solid fa-clock"></i>
+              <span>Mon - Sat: 9:00 AM - 6:00 PM<br />Sunday: Closed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Copyright Bar -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+            <p>
+              Design and Developed by
+              <a
+                href="https://kyleinfotech.co.in/"
+                class="text-brand-yellow font-bold hover:underline"
+                target="_blank"
+                >Kyle Infotech</a
+              >
+            </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      const mobileMenuBtn = document.getElementById("mobileMenuBtn");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      mobileMenuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        const icon = mobileMenuBtn.querySelector("i");
+        if (mobileMenu.classList.contains("active")) {
+          icon.classList.replace("fa-bars", "fa-xmark");
+        } else {
+          icon.classList.replace("fa-xmark", "fa-bars");
+        }
+      });
+    </script>
+  </body>
+</html>

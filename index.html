@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Wall Painting & Home Decoration Services</title>
+    <meta name="description"
+        content="Transform your home with our professional wall painting and decoration services. Expert painters delivering beautiful, lasting finishes.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#F5A623',
+                        'brand-gold': '#F5A623',
+                        'brand-dark': '#1a1a1a',
+                        'brand-darker': '#111111',
+                        'brand-teal': '#1a4548',
+                        'brand-blue': '#0d6efd',
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            overflow-x: hidden;
+        }
+
+        /* ===== GLOBAL TYPOGRAPHY ===== */
+        .why-us-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(32px, 5vw, 56px);
+            font-weight: 700;
+            color: #1a1a1a;
+            line-height: 1.1;
+        }
+
+        .section-title-light {
+            color: white;
+        }
+
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announcement-bar {
+            background: linear-gradient(90deg, #F5A623 0%, #f0c143 50%, #F5A623 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .announcement-bar a {
+            transition: all 0.3s ease;
+        }
+
+        .announcement-bar a:hover {
+            letter-spacing: 1px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .main-nav {
+            background: #111111;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-link-custom {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #F5A623;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link-custom:hover::after {
+            width: 100%;
+        }
+
+        .nav-link-custom:hover {
+            color: #F5A623 !important;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero-section {
+            position: relative;
+            min-height: 620px;
+            background: url('images/House Painting Services Ryton - Johnson Decorators ltd.jpg') center center / cover no-repeat;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to right,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.7) 40%,
+                    rgba(0, 0, 0, 0.4) 60%,
+                    rgba(0, 0, 0, 0.5) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== FORM ===== */
+        .quote-form {
+            background: rgba(255, 255, 255, 0.97);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .form-input-wrapper {
+            position: relative;
+            margin-bottom: 14px;
+        }
+
+        .form-input-wrapper input,
+        .form-input-wrapper select {
+            width: 100%;
+            padding: 14px 50px 14px 18px;
+            border: 1.5px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            background: #fafafa;
+            transition: all 0.3s ease;
+            outline: none;
+        }
+
+        .form-input-wrapper input:focus,
+        .form-input-wrapper select:focus {
+            border-color: #F5A623;
+            box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.15);
+            background: #fff;
+        }
+
+        .form-input-wrapper .input-icon {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999;
+            font-size: 16px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #0052D4 0%, #0d6efd 50%, #4364F7 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(13, 110, 253, 0.4);
+        }
+
+        /* ===== CTA STRIP ===== */
+        .cta-strip {
+            background: linear-gradient(135deg, #0052D4 0%, #0d6efd 100%);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                box-shadow: 0 4px 15px rgba(13, 110, 253, 0.3);
+            }
+
+            50% {
+                box-shadow: 0 4px 25px rgba(13, 110, 253, 0.6);
+            }
+        }
+
+        /* ===== PAINT SPLASH EFFECT ===== */
+        .paint-drip {
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            z-index: 3;
+        }
+
+        /* ===== LOGO TEXT ===== */
+        .logo-text {
+            border: 2.5px solid white;
+            border-radius: 8px;
+            padding: 6px 16px;
+            line-height: 1.1;
+        }
+
+        /* ===== SERVICES DROPDOWN ===== */
+        .services-dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            min-width: 260px;
+            padding: 12px 0;
+            z-index: 100;
+        }
+
+        .services-trigger:hover .services-dropdown {
+            display: block;
+        }
+
+        .services-dropdown a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.2s ease;
+        }
+
+        .services-dropdown a:hover {
+            background: #FFF8E7;
+            color: #F5A623;
+            padding-left: 28px;
+        }
+
+        /* ===== MOBILE MENU ===== */
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #111111;
+            padding: 20px;
+            z-index: 100;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+            padding: 12px 0;
+            color: white;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 15px;
+        }
+
+        .mobile-menu a:hover {
+            color: #F5A623;
+        }
+
+
+
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 1023px) {
+            .hero-section {
+                min-height: auto;
+            }
+
+            .hero-overlay {
+                background: linear-gradient(to bottom,
+                        rgba(0, 0, 0, 0.8) 0%,
+                        rgba(0, 0, 0, 0.6) 100%);
+            }
+        }
+
+        @media (max-width: 767px) {
+            .hero-section {
+                min-height: auto;
+            }
+        }
+
+        /* ===== ANIMATION KEYFRAMES ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .animate-fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+
+        .animate-fade-in-right {
+            animation: fadeInRight 0.8s ease-out forwards;
+        }
+
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+
+        /* ===== SCROLL INDICATOR ===== */
+        .scroll-indicator {
+            animation: bounce-down 1.5s ease-in-out infinite;
+        }
+
+        @keyframes bounce-down {
+
+            0%,
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            50% {
+                transform: translateY(8px);
+                opacity: 0.5;
+            }
+        }
+
+        /* ============================================
+           FOUNDER QUOTE SECTION - LIQUID GLASS
+           ============================================ */
+        .quote-section {
+            position: relative;
+            background: #fafafa;
+            overflow: hidden;
+            padding: 80px 0;
+            content-visibility: auto;
+            contain-intrinsic-size: 600px;
+        }
+
+        .quote-liquid-bg {
+            position: absolute;
+            inset: 0;
+            overflow: hidden;
+        }
+
+        .quote-liquid-bg .ql-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+        }
+
+        .ql-blob-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(245, 166, 35, 0.25);
+            top: -200px;
+            right: -150px;
+            animation: ql-drift 10s ease-in-out infinite;
+        }
+
+        .ql-blob-2 {
+            width: 400px;
+            height: 400px;
+            background: rgba(13, 110, 253, 0.18);
+            bottom: -200px;
+            left: -100px;
+            animation: ql-drift 12s ease-in-out infinite reverse;
+        }
+
+        @keyframes ql-drift {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, -30px);
+            }
+        }
+
+        .quote-glass-card {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #ffffff;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 24px;
+            padding: 50px 50px;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.06);
+        }
+
+        .quote-glass-card::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.25), transparent 40%, transparent 60%, rgba(13, 110, 253, 0.2));
+            z-index: -1;
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: xor;
+            padding: 1px;
+        }
+
+        .quote-icon {
+            font-size: 42px;
+            color: #F5A623;
+            opacity: 0.7;
+            line-height: 1;
+        }
+
+        .quote-text {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 20px;
+            line-height: 1.7;
+            color: #333;
+            margin: 24px 0;
+        }
+
+        .quote-author {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #F5A623;
+            letter-spacing: 1px;
+        }
+
+        .quote-title {
+            font-size: 13px;
+            color: #888;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Divider line with glow */
+        .glow-divider {
+            width: 60px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #F5A623, transparent);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        /* ===== REVIEW BADGES - GLASSMORPHISM ===== */
+        .review-badges-section {
+            position: relative;
+            background: linear-gradient(180deg, #fafafa 0%, #f3f3f3 100%);
+            padding: 50px 0 60px;
+            overflow: hidden;
+        }
+
+        .review-badge-glass {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(0, 0, 0, 0.07);
+            border-radius: 16px;
+            padding: 20px 28px;
+            text-align: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+        }
+
+        .review-badge-glass:hover {
+            border-color: rgba(245, 166, 35, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(245, 166, 35, 0.1), 0 4px 15px rgba(0, 0, 0, 0.06);
+        }
+
+        .review-badge-glass .stars {
+            color: #F5A623;
+            font-size: 16px;
+            letter-spacing: 2px;
+        }
+
+        .review-badge-glass .rating {
+            color: #1a1a1a;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        .review-badge-glass .source {
+            color: #666;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .review-badge-glass img {
+            max-height: 50px;
+            object-fit: contain;
+            transition: filter 0.3s ease;
+        }
+
+        .review-badge-glass:hover img {
+            filter: brightness(1.05) contrast(1.05);
+        }
+
+        /* ============================================
+           WHY US SECTION - MODERN LAYOUT
+           ============================================ */
+        /* ============================================
+           WHY US SECTION - V3 ULTRA PREMIUM
+           ============================================ */
+        /* ============================================
+           WHY US SECTION - V4 FULL HEIGHT SPLIT
+           ============================================ */
+        .why-us-section {
+            background: #000000;
+            padding: 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .why-us-v4-container {
+            display: flex;
+            flex-direction: column;
+            min-height: 600px;
+        }
+
+        @media (min-width: 1024px) {
+            .why-us-v4-container {
+                flex-direction: row;
+                height: 60vh;
+                /* Reduced from 80vh */
+                min-height: 550px;
+                /* Reduced from 700px */
+            }
+        }
+
+        /* Left: Full Height Image */
+        .v4-image-side {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .v4-main-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .v4-image-side:hover .v4-main-img {
+            transform: scale(1.05);
+        }
+
+        .v4-overlay-badge {
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            background: #F5A623;
+            color: #000;
+            padding: 12px 25px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            border-radius: 4px;
+            z-index: 5;
+        }
+
+        /* Right: Content Side */
+        .v4-content-side {
+            flex: 1;
+            background: #0a0a0a;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        @media (min-width: 1024px) {
+            .v4-content-side {
+                padding: 60px 80px;
+                /* Reduced padding */
+            }
+        }
+
+        .v4-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(36px, 5vw, 60px);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .v4-title span {
+            color: #F5A623;
+        }
+
+        .v4-desc {
+            font-size: 18px;
+            color: #888;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .v4-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        @media (min-width: 640px) {
+            .v4-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .v4-item {
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .v4-icon-wrap {
+            color: #F5A623;
+            font-size: 20px;
+            margin-top: 5px;
+        }
+
+        .v4-item h4 {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .v4-item p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .v4-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            color: #F5A623;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .v4-btn:hover {
+            gap: 25px;
+            color: white;
+        }
+
+        .v3-btn:hover {
+            background: #F5A623;
+            transform: scale(1.05) translateY(-5px);
+            box-shadow: 0 20px 40px rgba(245, 166, 35, 0.3);
+        }
+
+        /* ============================================
+           PROJECT GALLERY SECTION
+           ============================================ */
+        .gallery-section {
+            background: #ffffff;
+            padding: 80px 0;
+            position: relative;
+            content-visibility: auto;
+            contain-intrinsic-size: 800px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 40px;
+            overflow: hidden;
+            aspect-ratio: 16/10;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.2, 1, 0.3, 1);
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 60%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-cat {
+            color: #F5A623;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.1s;
+        }
+
+        .gallery-name {
+            color: white;
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            transform: translateY(20px);
+            transition: transform 0.4s ease 0.2s;
+        }
+
+        .gallery-item:hover .gallery-cat,
+        .gallery-item:hover .gallery-name {
+            transform: translateY(0);
+        }
+
+
+
+        /* ============================================
+           OUR SERVICES SECTION - IMAGE CARDS
+           ============================================ */
+        .detailed-services-section {
+            background: #ffffff;
+            padding: 100px 0;
+            position: relative;
+            content-visibility: auto;
+            contain-intrinsic-size: 1200px;
+        }
+
+        .services-main-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 35px;
+        }
+
+        @media (min-width: 768px) {
+            .services-main-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .services-main-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .service-full-card {
+            background: #ffffff;
+            border-radius: 100px;
+            overflow: hidden;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s ease;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
+            height: 100%;
+            will-change: transform;
+        }
+
+        .service-full-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.12);
+            border-color: rgba(245, 166, 35, 0.3);
+        }
+
+        .service-read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 12px;
+            font-weight: 900;
+            color: #1a1a1a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 25px;
+            transition: all 0.4s ease;
+            text-decoration: none;
+            padding: 12px 30px;
+            background: #F5A623;
+            border-radius: 50px;
+            box-shadow: 0 10px 20px rgba(245, 166, 35, 0.2);
+        }
+
+        .service-read-more:hover {
+            background: #111111;
+            color: #F5A623;
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-read-more i {
+            font-size: 11px;
+            transition: transform 0.4s ease;
+        }
+
+        .service-read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        .service-card-img-wrap {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 100px 100px 0 0;
+            padding: 10px;
+        }
+
+        .service-card-img-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 90px 90px 0 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .service-full-card:hover .service-card-img {
+            transform: scale(1.1);
+        }
+
+        .service-icon-badge {
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background: #111111;
+            color: #F5A623;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            z-index: 10;
+            border: 4px solid #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+        }
+
+        .service-full-card:hover .service-icon-badge {
+            background: #F5A623;
+            color: #111111;
+            transform: translateX(-50%) rotate(360deg);
+        }
+
+        .service-icon-badge i {
+            font-size: 24px;
+            transition: all 0.4s ease;
+        }
+
+        .service-card-info {
+            padding: 50px 40px 60px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .service-title {
+            font-size: 24px;
+            font-weight: 800;
+            color: #1a1a1a;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .service-desc {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* ============================================
+           SPECIALIZATION SPLIT SECTION
+           ============================================ */
+        .specialization-split {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .spec-side {
+            flex: 1;
+            min-width: 100%;
+            height: 420px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        @media (min-width: 1024px) {
+            .spec-side {
+                min-width: 50%;
+                height: 480px;
+            }
+        }
+
+        .spec-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+
+        .spec-side:hover .spec-bg {
+            transform: scale(1.1);
+        }
+
+        .spec-overlay {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .spec-side-left .spec-overlay {
+            background: linear-gradient(rgba(26, 69, 72, 0.9), rgba(26, 69, 72, 0.7));
+        }
+
+        .spec-side-right .spec-overlay {
+            background: linear-gradient(rgba(245, 166, 35, 0.9), rgba(245, 166, 35, 0.7));
+        }
+
+        .spec-content {
+            position: relative;
+            z-index: 2;
+            padding: 40px;
+            max-width: 600px;
+        }
+
+        .spec-title {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(28px, 5vw, 42px);
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .spec-side-right .spec-title {
+            color: #1a1a1a;
+        }
+
+        .spec-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .spec-side-left .spec-btn {
+            background: #F5A623;
+            color: #1a1a1a;
+        }
+
+        .spec-side-left .spec-btn:hover {
+            background: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(245, 166, 35, 0.4);
+        }
+
+        .spec-side-right .spec-btn {
+            background: #1a1a1a;
+            color: white;
+        }
+
+        .spec-side-right .spec-btn:hover {
+            background: #0d6efd;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(13, 110, 253, 0.4);
+        }
+
+        /* ============================================
+           TESTIMONIALS SECTION - GLASSMORPHISM
+           ============================================ */
+        .testimonials-section {
+            background: #ffffff;
+            padding: 100px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 1024px) {
+            .testimonials-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .testimonials-swiper .swiper-slide {
+            height: auto;
+        }
+
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 50px 40px;
+            border: 1px solid rgba(245, 166, 35, 0.2);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            position: relative;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-12px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            border-color: rgba(245, 166, 35, 0.5);
+        }
+
+        .testi-quote-icon {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            font-size: 40px;
+            color: rgba(13, 110, 253, 0.08);
+            z-index: 1;
+        }
+
+        .testi-rating {
+            color: #F5A623;
+            font-size: 14px;
+            margin-bottom: 25px;
+            display: flex;
+            gap: 4px;
+        }
+
+        .testi-text {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #444;
+            margin-bottom: 30px;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+            flex-grow: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        /* Custom Scrollbar for Testimonial Text */
+        .testi-text::-webkit-scrollbar {
+            width: 4px;
+        }
+        .testi-text::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .testi-text::-webkit-scrollbar-thumb {
+            background: rgba(245, 166, 35, 0.5);
+            border-radius: 4px;
+        }
+
+        .testi-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .avatar-circle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #0d6efd 0%, #F5A623 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 18px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .author-info h5 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 700;
+            color: #1a1a1a;
+            margin: 0;
+        }
+
+        .author-info span {
+            font-size: 13px;
+            color: #888;
+            font-weight: 500;
+        }
+
+        /* ============================================
+           CTA BANNER SECTION
+           ============================================ */
+        .cta-banner-section {
+            position: relative;
+            padding: 100px 0;
+            background: url('images/IMG_3192 (1).jpeg') center center / cover no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .cta-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.85) 0%, rgba(13, 110, 253, 0.4) 100%);
+            z-index: 1;
+        }
+
+        .cta-banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============================================
+           FOOTER SECTION
+           ============================================ */
+        .main-footer {
+            background: #111111;
+            color: #ffffff;
+            padding: 80px 0 0;
+            font-family: 'Montserrat', sans-serif;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-logo {
+            margin-bottom: 25px;
+        }
+
+        .footer-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #F5A623;
+        }
+
+        .footer-link {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #F5A623;
+            transform: translateX(8px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .footer-contact-item i {
+            color: #F5A623;
+            font-size: 18px;
+            margin-top: 3px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .social-btn:hover {
+            background: #F5A623;
+            color: #000;
+            transform: translateY(-5px);
+        }
+
+        .footer-bottom {
+            margin-top: 60px;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 13px;
+            color: #666;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .footer-bottom {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        /* ===== FEATURES GRID ===== */
+        .feature-item {
+            padding: 20px;
+            transition: all 0.3s ease;
+            border-radius: 12px;
+        }
+
+        .feature-item:hover {
+            background: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            transform: scale(1.1);
+        }
+
+        /* ===== SERVICE SWIPER ===== */
+        .service-swiper {
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .service-swiper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-swiper .swiper-pagination-bullet-active {
+            background: #F5A623;
+        }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div class="announcement-bar">
+        <a href="contact.html"
+            class="block text-center py-2.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide">
+            <i class="fa-solid fa-paintbrush mr-2"></i>
+            Call Now &amp; Get 15% OFF On Your First Wall Painting Project!
+            <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="main-nav sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="index.html" class="flex-shrink-0 no-underline">
+                    <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[130px] w-auto object-contain"
+                        loading="lazy">
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html"
+                        class="nav-link-custom text-brand-yellow font-bold text-[15px] no-underline">Home</a>
+                    <a href="about.html"
+                        class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="services.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline flex items-center gap-2">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                            <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                            <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                            <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                            <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                            <a href="plastering.html" class="dropdown-link">Plastering</a>
+                            <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                            <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html"
+                        class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Portfolio</a>
+                    <a href="blog.html"
+                        class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Blog</a>
+                    <a href="contact.html"
+                        class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:block">
+                    <a href="contact.html"
+                        class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg no-underline hover:bg-yellow-400 transition-all duration-300 hover:shadow-lg hover:shadow-yellow-500/30 hover:-translate-y-0.5">
+                        FREE QUOTE
+                        <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <!-- Mobile Hamburger -->
+                <button id="mobileMenuBtn"
+                    class="lg:hidden text-white text-2xl bg-transparent border-none cursor-pointer">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu">
+                <a href="index.html" class="text-brand-yellow">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="blog.html">Blog</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html"
+                    class="inline-block mt-4 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg text-center">Get
+                    Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO / BANNER SECTION ==================== -->
+    <section class="hero-section relative" id="hero-banner">
+
+        <!-- Dark Overlay -->
+        <div class="hero-overlay"></div>
+
+        <!-- Main Content -->
+        <div class="hero-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+            <div class="flex flex-col lg:flex-row items-center gap-10 lg:gap-14">
+
+                <!-- ===== LEFT COLUMN: Text ===== -->
+                <div class="flex-1 text-center lg:text-left animate-fade-in-up">
+                    <!-- Badge -->
+                    <div
+                        class="inline-flex items-center gap-2 bg-brand-yellow/20 border border-brand-yellow/40 rounded-full px-4 py-1.5 mb-6">
+                        <i class="fa-solid fa-star text-brand-yellow text-xs"></i>
+                        <span class="text-brand-yellow text-sm font-semibold tracking-wide">Award-Winning
+                            Painters</span>
+                    </div>
+
+                    <!-- Heading -->
+                    <h1
+                        class="font-heading text-white text-3xl sm:text-4xl lg:text-[2.75rem] xl:text-5xl font-bold leading-tight mb-6">
+                        <span class="text-brand-yellow italic">Premium Wall Painting</span>
+                        <span class="text-brand-yellow italic"> & Home Decoration</span><br class="hidden sm:block">
+                        <span class="text-white">— Flawless Finish,</span><br class="hidden lg:block">
+                        <span class="text-white">On-Time, Beautifully Crafted.</span>
+                    </h1>
+
+                    <!-- Description -->
+                    <p class="text-gray-300 text-lg lg:text-xl leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
+                        We transform your walls with expert painting, texture finishes,
+                        and designer wall art — delivering
+                        <strong class="text-white">stunning results</strong> with
+                        premium paints, clean execution, and a team you can trust.
+                    </p>
+
+                    <!-- Stats -->
+                    <div class="flex flex-wrap justify-center lg:justify-start gap-8 mb-8">
+                        <div class="text-center">
+                            <div class="text-brand-yellow text-3xl font-extrabold">500+</div>
+                            <div class="text-gray-400 text-xs font-medium uppercase tracking-wider mt-1">Projects Done
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-brand-yellow text-3xl font-extrabold">10+</div>
+                            <div class="text-gray-400 text-xs font-medium uppercase tracking-wider mt-1">Years
+                                Experience</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-brand-yellow text-3xl font-extrabold">4.9★</div>
+                            <div class="text-gray-400 text-xs font-medium uppercase tracking-wider mt-1">Client Rating
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CTA Call Strip -->
+                    <div class="animate-fade-in-up delay-300">
+                        <a href="tel:+447827931007"
+                            class="cta-strip inline-flex items-center gap-3 text-white no-underline px-6 py-3.5 rounded-xl font-bold text-base transition-all duration-300 hover:-translate-y-1">
+                            <span class="flex items-center justify-center w-10 h-10 bg-white/20 rounded-full">
+                                <i class="fa-solid fa-phone text-white"></i>
+                            </span>
+                            <span>Call Now For Free Consultation</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- ===== RIGHT COLUMN: Quote Form ===== -->
+                <div class="w-full lg:w-[420px] flex-shrink-0 animate-fade-in-right delay-200">
+                    <div class="quote-form p-7">
+
+                        <!-- Form Header -->
+                        <div class="mb-5">
+                            <h4 class="text-2xl font-bold text-gray-900 font-heading">
+                                <span class="text-brand-yellow">Request</span> a free quote
+                            </h4>
+                            <p class="text-gray-500 text-sm mt-1.5 leading-relaxed">
+                                Looking for professional decorators for your home or office?
+                            </p>
+                        </div>
+
+                        <form id="quoteForm" action="#" method="POST">
+                            <!-- Name -->
+                            <div class="form-input-wrapper">
+                                <input type="text" name="name" id="form-name" placeholder="Your name" required>
+                                <span class="input-icon"><i class="fa-regular fa-user"></i></span>
+                            </div>
+
+                            <!-- Phone -->
+                            <div class="form-input-wrapper">
+                                <input type="tel" name="phone" id="form-phone" placeholder="Phone number" required>
+                                <span class="input-icon"><i class="fa-solid fa-phone-flip"></i></span>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-input-wrapper">
+                                <input type="email" name="email" id="form-email" placeholder="Your email" required>
+                                <span class="input-icon"><i class="fa-regular fa-envelope"></i></span>
+                            </div>
+
+                            <!-- Service Select -->
+                            <div class="form-input-wrapper">
+                                <select name="service" id="form-service" required>
+                                    <option value="">Select Services</option>
+                                    <option value="Interior Painting">Interior Painting</option>
+                                    <option value="Exterior Painting">Exterior Painting</option>
+                                    <option value="Wallpapering">Wallpapering</option>
+                                    <option value="Plastering">Plastering</option>
+                                    <option value="Wood Panelling">Wood Panelling</option>
+                                    <option value="School and Colleges Painting">School and Colleges Painting</option>
+                                </select>
+                            </div>
+
+                            <!-- reCAPTCHA placeholder -->
+
+                            <!-- Submit -->
+                            <button type="submit" class="submit-btn">
+                                Get My Free Home Visit
+                                <i class="fa-solid fa-arrow-right ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Paint drip SVG decoration -->
+        <div class="paint-drip">
+            <svg viewBox="0 0 1440 60" preserveAspectRatio="none" class="w-full h-[40px] md:h-[60px]">
+                <path
+                    d="M0,0 L0,40 Q60,55 120,40 Q180,25 240,40 Q300,55 360,40 Q420,25 480,40 Q540,55 600,40 Q660,25 720,40 Q780,55 840,40 Q900,25 960,40 Q1020,55 1080,40 Q1140,25 1200,40 Q1260,55 1320,40 Q1380,25 1440,40 L1440,0 Z"
+                    fill="transparent" />
+                <path
+                    d="M0,40 Q60,55 120,40 Q180,25 240,40 Q300,55 360,40 Q420,25 480,40 Q540,55 600,40 Q660,25 720,40 Q780,55 840,40 Q900,25 960,40 Q1020,55 1080,40 Q1140,25 1200,40 Q1260,55 1320,40 Q1380,25 1440,40 L1440,60 L0,60 Z"
+                    fill="#f9fafb" />
+            </svg>
+        </div>
+    </section>
+
+    <!-- ==================== FEATURES SLIDER SECTION ==================== -->
+    <section class="features-slider-section bg-gray-50 py-14 relative z-10 border-b border-gray-100 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="swiper features-swiper">
+                <div class="swiper-wrapper">
+                    <!-- Feature 1 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Free Site Survey <br>& Quote</h4>
+                        </div>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-user-tie"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Experienced & <br>Skilled Painters</h4>
+                        </div>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-gem"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Premium Quality <br>Materials</h4>
+                        </div>
+                    </div>
+                    <!-- Feature 4 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-tag"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Affordable <br>Pricing</h4>
+                        </div>
+                    </div>
+                    <!-- Feature 5 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Fast & On-Time <br>Completion</h4>
+                        </div>
+                    </div>
+                    <!-- Feature 6 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-broom"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Clean & Hassle-Free <br>Service</h4>
+                        </div>
+                    </div>
+                    <!-- Feature 7 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-palette"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Custom Design & <br>Color Consultation</h4>
+                        </div>
+                    </div>
+                    <!-- Feature 8 -->
+                    <div class="swiper-slide">
+                        <div class="feature-item text-center">
+                            <div class="feature-icon mb-4 text-brand-yellow text-4xl">
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </div>
+                            <h4 class="text-[13px] font-bold uppercase tracking-widest text-gray-800 leading-relaxed">
+                                Interior & Exterior <br>Specialists</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- ==================== WHY US SECTION ==================== -->
+    <section class="why-us-section" id="why-us">
+        <div class="why-us-v4-container">
+            <!-- Left: Full Height Image Side -->
+            <div class="v4-image-side">
+                <img src="images/vanimage1.jpeg" alt="Johnson Decorators Professional Van" class="v4-main-img"
+                    loading="lazy">
+            </div>
+
+            <!-- Right: Content Side -->
+            <div class="v4-content-side">
+                <h2 class="v4-title">Why We Are<br><span>Better</span> Than Others</h2>
+
+                <p class="v4-desc">
+                    We bring a fully equipped mobile workshop to your property, ensuring unparalleled efficiency and a
+                    flawless finish every time.
+                </p>
+
+                <div class="v4-grid">
+                    <div class="v4-item">
+                        <div class="v4-icon-wrap"><i class="fa-solid fa-bolt"></i></div>
+                        <div>
+                            <h4>Modern Tech</h4>
+                            <p>Digital color matching and airless spraying.</p>
+                        </div>
+                    </div>
+                    <div class="v4-item">
+                        <div class="v4-icon-wrap"><i class="fa-solid fa-crown"></i></div>
+                        <div>
+                            <h4>Elite Quality</h4>
+                            <p>Premium paints and artisan-level care.</p>
+                        </div>
+                    </div>
+                    <div class="v4-item">
+                        <div class="v4-icon-wrap"><i class="fa-solid fa-clock"></i></div>
+                        <div>
+                            <h4>Agile Fleet</h4>
+                            <p>Rapid response and reliable scheduling.</p>
+                        </div>
+                    </div>
+                    <div class="v4-item">
+                        <div class="v4-icon-wrap"><i class="fa-solid fa-shield-heart"></i></div>
+                        <div>
+                            <h4>Fully Insured</h4>
+                            <p>Peace of mind with complete coverage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="portfolio.html" class="v4-btn">
+                    EXPLORE OUR WORK
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== DETAILED SERVICES SECTION ==================== -->
+    <section class="detailed-services-section" id="detailed-services">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <h2 class="why-us-title mt-4 font-heading">Comprehensive Painting Solutions</h2>
+                <div class="glow-divider mx-auto mt-6"></div>
+            </div>
+
+            <div class="services-main-grid">
+
+                
+
+                <!-- 2. Interior Painting -->
+                <div class="service-full-card">
+                    <div class="service-card-img-wrap">
+                        <div class="service-card-img-inner">
+                            <img src="images/IMG_3182.jpeg" alt="Interior Painting" class="service-card-img" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="service-card-info">
+                        <h3 class="service-title font-heading">Interior Painting</h3>
+                        <p class="service-desc">Complete painting and decorating services for new residential and
+                            commercial property developments.</p>
+                        <a href="interior-painting.html" class="service-read-more">
+                            Read More
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Exterior Painting -->
+                <div class="service-full-card">
+                    <div class="service-card-img-wrap">
+                        <div class="service-card-img-inner">
+                            <img src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg"
+                                alt="Exterior Painting" class="service-card-img" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="service-card-info">
+                        <h3 class="service-title font-heading">Exterior Painting</h3>
+                        <p class="service-desc">Protect and beautify your property's exterior with high-performance,
+                            weather-resistant coatings.</p>
+                        <a href="exterior-painting.html" class="service-read-more">
+                            Read More
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Wallpapering -->
+                <div class="service-full-card">
+                    <div class="service-card-img-wrap">
+                        <div class="service-card-img-inner">
+                            <img src="images/PHOTO-2026-03-12-11-41-09.jpg" alt="Wallpapering" class="service-card-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <div class="service-card-info">
+                        <h3 class="service-title font-heading">Wallpapering</h3>
+                        <p class="service-desc">High-quality finishes for every surface, from luxury indoor spaces to
+                            delicate feature walls.</p>
+                        <a href="wallpapering.html" class="service-read-more">
+                            Read More
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 5. Plastering -->
+                <div class="service-full-card">
+                    <div class="service-card-img-wrap">
+                        <div class="service-card-img-inner">
+                            <img src="images/IMG_3193.jpeg" alt="Plastering" class="service-card-img" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="service-card-info">
+                        <h3 class="service-title font-heading">Plastering</h3>
+                        <p class="service-desc">Expert plastering and surface preparation to ensure a flawless
+                            foundation for any decorative finish.</p>
+                        <a href="plastering.html" class="service-read-more">
+                            Read More
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 6. Wood Painting -->
+                <div class="service-full-card">
+                    <div class="service-card-img-wrap">
+                        <div class="service-card-img-inner">
+                            <img src="images/PHOTO-2026-03-12-11-46-31.jpg" alt="Wood Painting" class="service-card-img"
+                                loading="lazy">
+                        </div>
+                    </div>
+                    <div class="service-card-info">
+                        <h3 class="service-title font-heading">Wood Painting</h3>
+                        <p class="service-desc">Premium finishes for kitchen cabinets, staircases, and all
+                            interior/exterior woodwork.</p>
+                        <a href="wood-painting.html" class="service-read-more">
+                            Read More
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 7. School and Colleges Painting -->
+                <div class="service-full-card">
+                    <div class="service-card-img-wrap">
+                        <div class="service-card-img-inner">
+                            <img src="images/IMG_3190.jpeg" alt="School Painting" class="service-card-img" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="service-card-info">
+                        <h3 class="service-title font-heading">School and Colleges Painting</h3>
+                        <p class="service-desc">Durable, vibrant, and safe painting solutions designed for high-traffic
+                            educational environments.</p>
+                        <a href="school-colleges-painting.html" class="service-read-more">
+                            Read More
+                            <i class="fa-solid fa-chevron-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+               
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== SPECIALIZATION SPLIT SECTION ==================== -->
+    <section class="specialization-split">
+
+        <!-- Left Side: Domestic -->
+        <div class="spec-side spec-side-left">
+            <div class="spec-bg" style="background-image: url('images/IMG_3157.jpeg');"></div>
+            <div class="spec-overlay"></div>
+            <div class="spec-content animate-fade-in-up">
+                <h2 class="spec-title">Specializing In All Aspects Of <span class="block">Domestic Painting</span></h2>
+                <a href="domestic-painting.html" class="spec-btn">
+                    View More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Side: Commercial -->
+        <div class="spec-side spec-side-right">
+            <div class="spec-bg" style="background-image: url('images/IMG_3191.jpeg');"></div>
+            <div class="spec-overlay"></div>
+            <div class="spec-content animate-fade-in-up delay-200">
+                <h2 class="spec-title">Specializing In All Aspects Of <span class="block">Commercial Painting</span>
+                </h2>
+                <a href="commercial-painting.html" class="spec-btn">
+                    View More
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+    </section>
+    <!-- ==================== PROJECT GALLERY SECTION ==================== -->
+    <section class="gallery-section" id="gallery">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+            <div class="text-center mb-16">
+                <h2 class="why-us-title mb-4 font-heading">Our Recent Projects</h2>
+                <div class="glow-divider"></div>
+            </div>
+
+            <div class="swiper gallery-swiper pb-12" id="lightgallery">
+                <div class="swiper-wrapper">
+                    <!-- Project 1: Modern Living Room -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item lightgallery-item" data-src="images/PHOTO-2026-03-12-12-01-06.jpg"
+                            data-sub-html="<h4>Modern Living Room</h4><p>Premium Interior Painting</p>">
+                            <img src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg"
+                                alt="Modern Living Room Painting" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-cat">Exterior Painting</div>
+                                <div class="gallery-name">Modern Living Room</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 2: Luxury Bedroom -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item lightgallery-item" data-src="images/PHOTO-2026-03-12-11-50-09.jpg"
+                            data-sub-html="<h4>Luxury Master Bedroom</h4><p>Custom Accent Walls</p>">
+                            <img src="images/PHOTO-2026-03-12-11-49-02.jpg" alt="Luxury Bedroom Painting"
+                                loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-cat">Wallpapering</div>
+                                <div class="gallery-name">Luxury Master Bedroom</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project 3: Exterior Painting -->
+                    <div class="swiper-slide">
+                        <div class="gallery-item lightgallery-item" data-src="images/PHOTO-2026-03-12-11-49-35 5.jpg"
+                            data-sub-html="<h4>Exterior Renovation</h4><p>Weather-resistant Finish</p>">
+                            <img src="images/IMG_3190 (1).jpeg" alt="Exterior Painting" loading="lazy">
+                            <div class="gallery-overlay">
+                                <div class="gallery-cat">School and Colleges Painting</div>
+                                <div class="gallery-name">Victorian Facade</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    <!-- ==================== TESTIMONIALS SECTION ==================== -->
+    <section class="testimonials-section" id="testimonials">
+
+
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+            <div class="text-center mb-16">
+                <h2 class="why-us-title mt-4">What Our Clients Say</h2>
+                <div class="glow-divider mx-auto mt-6"></div>
+            </div>
+
+            <div class="swiper testimonials-swiper px-4 py-8">
+                <div class="swiper-wrapper">
+
+                    <!-- Testimonial 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "James did an excellent job of decorating for us recently. He has an eye for detail, was careful to prep everything well and the finish was perfect. Very respectful of our property and great to communicate with. I can highly recommend his services."
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">SF</div>
+                                <div class="author-info">
+                                    <h5>S Firth</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "James has completed several decorating projects for us, all to a very high standard. He took the time to understand exactly what we wanted and delivered on it perfectly."
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">TW</div>
+                                <div class="author-info">
+                                    <h5>Tom Wilson</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Full house painted, including wood work, doors and ceilings. All work completed to a very high standard. Great attention to detail, very reliable, efficient and professional at all times. I would not hesitate in recommending to others!"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">TB</div>
+                                <div class="author-info">
+                                    <h5>Tony B</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Excellent work, re decorated main bar area at Station House Ponteland and our new darts room area. Fitted us in quickly, will definitely be using again for next projects"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">JR</div>
+                                <div class="author-info">
+                                    <h5>Jim Richardson</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 5 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Excellent service, very quick and efficient, fitted us in at short notice and work is excellent, highly recommend"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">CR</div>
+                                <div class="author-info">
+                                    <h5>Claire Richardson</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 6 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Very good work also very professional would highly recommend."
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">PD</div>
+                                <div class="author-info">
+                                    <h5>Paul Down</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 7 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Jimmy is a lovely person and fantastic at decorating, he’s done my baby’s room- wallpapered and painted! Love it, thank you again, can’t recommend you enough"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">KW</div>
+                                <div class="author-info">
+                                    <h5>Katelyn Wilson</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 8 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Jimmy is an excellent painter and decorator he is professional honest and reliable and would recommend him without doubt"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">LC</div>
+                                <div class="author-info">
+                                    <h5>Linda Candlish</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 9 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "I Would highly recommend james such an amazing and professional worker."
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">K</div>
+                                <div class="author-info">
+                                    <h5>Kenny</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 10 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "They were very professional in the work they did left no mess and only used a top brand paint and were on time always"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">PS</div>
+                                <div class="author-info">
+                                    <h5>Peter Stafford</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 11 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Jimmy’s work is outstanding. He has done meany jobs for me over the years to such a high standard. My home is a converted barn. Jimmy and his team took great pride in preparing the walls woodwork and roof rafters before painting for the best possible finish on a property so old. I would highly recommend to my family and friends."
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">PH</div>
+                                <div class="author-info">
+                                    <h5>Paul Howie</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 12 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "A great friendly customer service that goes above and beyond the work they provide. Free estimates and flexible work to help working around the customer. High standard of finish and great results for the money. Would definitely recommend."
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">KJ</div>
+                                <div class="author-info">
+                                    <h5>Kathryn Johnson</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 13 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "James did a fantastic job painting our front room. Fast, efficient & friendly. Will be using James again & can recommend to everyone. 👍"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">JL</div>
+                                <div class="author-info">
+                                    <h5>Jeff Lewis</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 14 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "Top quality workmanship. Really happy with two bedrooms James did for us. 100% recommend him for any painting and decorating you need doing."
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">AD</div>
+                                <div class="author-info">
+                                    <h5>Anthony Dowson</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 15 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <i class="fa-solid fa-quote-right testi-quote-icon"></i>
+                            <div class="testi-rating">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="testi-text">
+                                "I have used Johnson Decorators for many years and wouldn’t go anywhere else. The attention to detail is absolutely first class and he always keeps the place immaculate whilst the work is ongoing. Very highly recommend"
+                            </p>
+                            <div class="testi-author">
+                                <div class="avatar-circle">GW</div>
+                                <div class="author-info">
+                                    <h5>Geoffrey Woods</h5>
+                                    <span>Google Review</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- Swiper Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section>
+    <!-- ==================== CTA BANNER SECTION ==================== -->
+    <section class="cta-banner-section" id="cta-banner">
+        <div class="cta-banner-overlay"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 cta-banner-content">
+            <h2 class="font-heading text-3xl md:text-5xl font-bold mb-6">Ready to give your home a premium makeover?
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-200 mb-10 max-w-3xl mx-auto">
+                Our expert painters are just a call away. Get your free personalized quote today and join 1300+
+                satisfied homeowners.
+            </p>
+            <a href="#hero-banner"
+                class="inline-flex items-center gap-3 bg-brand-yellow text-black font-bold px-10 py-4 rounded-lg text-lg hover:bg-yellow-400 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl hover:shadow-yellow-500/40">
+                Get a Free Quote
+                <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+    <!-- ==================== FOOTER SECTION ==================== -->
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="animate-fade-in">
+                    <div class="footer-logo">
+                        <img src="images/logojn.png" alt="Johnson Decorators Logo"
+                            class="h-[120px] w-auto object-contain" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We transform ordinary spaces into extraordinary masterpieces with premium materials, artistic
+                        precision, and unmatched professionalism.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jjohnsondecorators" target="_blank" class="social-btn"><i
+                                class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://uk.pinterest.com/johnsondecorators/" target="_blank" class="social-btn"><i
+                                class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://wa.me/+447827931007" target="_blank" class="social-btn"><i
+                                class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr"
+                            target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://g.page/r/CWv_8tCkQi9BEBM/" target="_blank" class="social-btn"><i
+                                class="fa-solid fa-home"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <a href="domestic-painting.html" class="footer-link">Domestic Painting</a>
+                    <a href="interior-painting.html" class="footer-link">Interior Painting</a>
+                    <a href="exterior-painting.html" class="footer-link">Exterior Painting</a>
+                    <a href="wallpapering.html" class="footer-link">Wallpapering</a>
+                    <a href="plastering.html" class="footer-link">Plastering</a>
+                    <a href="wood-painting.html" class="footer-link">Wood Painting</a>
+                    <a href="school-colleges-painting.html" class="footer-link">School and Colleges Painting</a>
+                    <a href="commercial-painting.html" class="footer-link">Commercial Painting</a>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                    <a href="terms-and-conditions.html" class="footer-link">Terms of Service</a>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:+447827931007"
+                                class="hover:text-brand-yellow transition-colors">07827931007</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>johnsondecoratorsltd@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p class="text-sm">&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+                <p class="text-sm">Design and Developed by <a href="https://kyleinfotech.co.in/"
+                        class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+            </div>
+        </div>
+    </footer>
+    <!-- Side Tab -->
+
+    <!-- Circle Button -->
+
+    <!-- ==================== SCRIPTS ==================== -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (mobileMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Navbar shrink on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.main-nav');
+            if (window.scrollY > 50) {
+                nav.style.boxShadow = '0 4px 20px rgba(0,0,0,0.3)';
+            } else {
+                nav.style.boxShadow = 'none';
+            }
+        });
+
+        // reCAPTCHA checkbox visual toggle
+        const captchaBox = document.querySelector('.fa-check');
+        if (captchaBox) {
+            captchaBox.parentElement.addEventListener('click', function () {
+                if (captchaBox.classList.contains('text-transparent')) {
+                    captchaBox.classList.remove('text-transparent');
+                    captchaBox.classList.add('text-green-500');
+                    this.classList.add('border-green-500');
+                    this.classList.remove('border-gray-300');
+                } else {
+                    captchaBox.classList.add('text-transparent');
+                    captchaBox.classList.remove('text-green-500');
+                    this.classList.remove('border-green-500');
+                    this.classList.add('border-gray-300');
+                }
+            });
+        }
+    </script>
+    <!-- lightGallery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <script>
+        // lightGallery Initialization
+        if (document.getElementById('lightgallery')) {
+            lightGallery(document.getElementById('lightgallery'), {
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                selector: '.lightgallery-item'
+            });
+        }
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Testimonials Swiper
+        const testimonialSwiper = new Swiper('.testimonials-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3500,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.testimonials-swiper .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 }
+            }
+        });
+
+        // Initialize Gallery Swiper
+        const gallerySwiper = new Swiper('.gallery-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.gallery-swiper .swiper-pagination',
+                clickable: true,
+            },
+            breakpoints: {
+                768: { slidesPerView: 2 }
+            }
+        });
+        // Initialize Features Swiper
+        const featuresSwiper = new Swiper('.features-swiper', {
+            slidesPerView: 2,
+            spaceBetween: 30,
+            loop: true,
+            autoplay: {
+                delay: 2000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: { slidesPerView: 3 },
+                1024: { slidesPerView: 5 }
+            }
+        });
+    </script>
+</body>
+
+</html>

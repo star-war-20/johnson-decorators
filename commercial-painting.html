@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commercial Painting | Johnson Decorators - Premium Business Painting Services</title>
+    <meta name="description" content="Professional commercial painting services by Johnson Decorators. Offices, retail, hospitality, schools, and large-scale commercial projects. Get a free quote.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'brand-yellow': '#F5A623', 'brand-dark': '#1a1a1a', 'brand-darker': '#111111' },
+                    fontFamily: { 'heading': ['Playfair Display', 'serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;0,900;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; overflow-x: hidden; background: #fff; }
+
+        .announcement-bar { background: linear-gradient(90deg, #F5A623, #f0c143, #F5A623); }
+        .main-nav { background: #111111; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .nav-link-custom { position: relative; transition: color 0.3s; }
+        .nav-link-custom::after { content: ''; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px; background: #F5A623; transition: all 0.3s; transform: translateX(-50%); }
+        .nav-link-custom:hover::after { width: 100%; }
+        .nav-link-custom:hover { color: #F5A623 !important; }
+        .logo-text { border: 2.5px solid white; border-radius: 8px; padding: 6px 16px; line-height: 1.1; }
+        .mobile-menu { display: none; position: absolute; top: 100%; left: 0; right: 0; background: #111; padding: 30px; border-top: 1px solid rgba(255,255,255,0.1); z-index: 999; }
+        .mobile-menu.active { display: block; }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+        .mobile-menu a { display: block; color: white; font-size: 18px; font-weight: 600; margin-bottom: 20px; text-decoration: none; }
+
+        /* HERO */
+        .page-hero {
+            position: relative;
+            height: 450px;
+            background: url('images/commercial-hero.png') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .page-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1;
+        }
+
+        .page-hero-content { position: relative; z-index: 2; }
+
+        /* STATS STRIP */
+        .stats-strip { background: #F5A623; padding: 50px 0; }
+
+        /* INTRO SPLIT */
+        .intro-img { border-radius: 24px; overflow: hidden; height: 100%; }
+        .intro-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .intro-img:hover img { transform: scale(1.04); }
+
+        /* ALTERNATING SECTIONS */
+        .alt-section-img { border-radius: 24px; overflow: hidden; box-shadow: 0 30px 70px rgba(0,0,0,0.12); }
+        .alt-section-img img { width: 100%; height: 420px; object-fit: cover; transition: transform 0.5s; }
+        .alt-section-img:hover img { transform: scale(1.04); }
+
+        /* SERVICES GRID */
+        .service-item-card { background: #fff; border-radius: 20px; overflow: hidden; border: 1px solid #f0f0f0; box-shadow: 0 8px 25px rgba(0,0,0,0.04); transition: all 0.4s ease; }
+        .service-item-card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.1); }
+        .service-card-img { width: 100%; height: 200px; object-fit: cover; transition: transform 0.5s ease; }
+        .service-item-card:hover .service-card-img { transform: scale(1.06); }
+        .service-item-icon { width: 55px; height: 55px; background: rgba(245,166,35,0.12); color: #F5A623; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; transition: all 0.3s; }
+        .service-item-card:hover .service-item-icon { background: #F5A623; color: #111; }
+
+        /* SECTOR CARDS */
+        .sector-card { border-radius: 20px; overflow: hidden; position: relative; height: 280px; cursor: default; }
+        .sector-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .sector-card:hover img { transform: scale(1.08); }
+        .sector-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.82) 40%, rgba(0,0,0,0.1)); display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; transition: all 0.3s; }
+        .sector-card:hover .sector-overlay { background: linear-gradient(to top, rgba(245,166,35,0.85) 35%, rgba(0,0,0,0.15)); }
+        .sector-icon { font-size: 26px; color: #F5A623; margin-bottom: 10px; transition: color 0.3s; }
+        .sector-card:hover .sector-icon { color: #111; }
+        .sector-card:hover h3 { color: #111; }
+        .sector-card:hover p { color: rgba(0,0,0,0.7); }
+
+        /* GALLERY STRIP */
+        .gallery-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+        .gallery-strip div { overflow: hidden; border-radius: 16px; aspect-ratio: 1; }
+        .gallery-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .gallery-strip div:hover img { transform: scale(1.08); }
+
+        /* PROCESS */
+        .process-step { text-align: center; padding: 24px; }
+        .step-number { width: 70px; height: 70px; background: #F5A623; color: #111; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; font-weight: 900; margin: 0 auto 22px; }
+
+        /* CTA */
+        .cta-section { padding: 140px 0; background: url('images/PHOTO-2026-03-12-11-41-09 4.jpg') center 60% / cover no-repeat; position: relative; text-align: center; color: white; }
+        .cta-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.8); }
+
+        /* FOOTER */
+        .main-footer { background: #111; color: #fff; padding: 80px 0 30px; }
+        .footer-link { display: block; color: #999; margin-bottom: 15px; transition: all 0.3s; text-decoration: none; font-size: 15px; }
+        .footer-link:hover { color: #F5A623; padding-left: 8px; }
+        .footer-heading { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; margin-bottom: 30px; color: #fff; }
+        .social-btn { width: 45px; height: 45px; background: #222; color: white; border-radius: 12px; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; transition: all 0.3s; text-decoration: none; }
+        .social-btn:hover { background: #F5A623; color: #111; transform: translateY(-5px); }
+
+        
+        
+        @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+    </style>
+</head>
+
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar">
+        <a href="contact.html" class="block text-center py-2.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide">
+            <i class="fa-solid fa-paintbrush mr-2"></i> Call Now &amp; Get 15% OFF On Your First Wall Painting Project!
+            <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex-shrink-0 no-underline">
+                    <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[130px] w-auto object-contain" loading="lazy">
+                </a>
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Home</a>
+                    <a href="about.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="services.html" class="nav-link-custom text-brand-yellow font-bold text-[15px] no-underline flex items-center gap-2">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                            <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                            <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                            <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                            <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                            <a href="plastering.html" class="dropdown-link">Plastering</a>
+                            <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                            <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Portfolio</a>
+                    <a href="blog.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Blog</a>
+                    <a href="contact.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Contact</a>
+                </div>
+                <div class="hidden lg:block">
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg no-underline hover:bg-yellow-400 transition-all">
+                        FREE QUOTE <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+                <button id="mobileMenuBtn" class="lg:hidden text-white text-2xl"><i class="fa-solid fa-bars"></i></button>
+            </div>
+            <div id="mobileMenu" class="mobile-menu">
+                <a href="index.html">Home</a><a href="about.html">About Us</a><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a><a href="contact.html">Contact</a>
+                <a href="contact.html" class="inline-block mt-4 bg-brand-yellow text-black font-bold px-8 py-3 rounded-lg">Get Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="page-hero-overlay"></div>
+        <div class="page-hero-content container mx-auto px-4">
+            <span class="block text-brand-yellow font-bold uppercase tracking-[0.4em] mb-4 text-sm">Our Speciality</span>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6">
+                Specializing In All <br> Aspects Of <span class="text-brand-yellow italic">Commercial Painting</span>
+            </h1>
+            <div class="flex justify-center items-center gap-4 text-sm font-medium mt-6">
+                <a href="index.html" class="hover:text-brand-yellow transition-colors">Home</a>
+                <i class="fa-solid fa-chevron-right text-[10px] text-gray-500"></i>
+                <span class="text-gray-400">Commercial Painting</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS STRIP -->
+    <section class="stats-strip">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div><div class="text-4xl font-black text-brand-dark">200+</div><div class="font-bold text-brand-dark/70 text-sm uppercase tracking-widest mt-1">Commercial Projects</div></div>
+                <div><div class="text-4xl font-black text-brand-dark">15+</div><div class="font-bold text-brand-dark/70 text-sm uppercase tracking-widest mt-1">Years Experience</div></div>
+                <div><div class="text-4xl font-black text-brand-dark">50+</div><div class="font-bold text-brand-dark/70 text-sm uppercase tracking-widest mt-1">Business Clients</div></div>
+                <div><div class="text-4xl font-black text-brand-dark">100%</div><div class="font-bold text-brand-dark/70 text-sm uppercase tracking-widest mt-1">Client Satisfaction</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INTRO -->
+    <section class="py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+                <div>
+                    <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-4">Commercial Excellence</span>
+                    <h2 class="text-4xl md:text-5xl font-heading font-bold text-brand-dark mb-8 leading-tight">
+                        Your Business Deserves a <span class="text-brand-yellow italic">Premium Finish</span>
+                    </h2>
+                    <p class="text-gray-600 leading-relaxed mb-6 text-lg">Your commercial space is the first impression you make on clients and customers. Johnson Decorators delivers exceptional commercial painting — on time, on budget, and with minimal disruption to your operations.</p>
+                    <p class="text-gray-500 leading-relaxed mb-10">From single-office refreshes to large-scale multi-site projects, our experienced commercial team works around your schedule — including evenings and weekends — so your business is never interrupted.</p>
+                    <div class="grid grid-cols-2 gap-5 mb-10">
+                        <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                            <i class="fa-solid fa-clock text-brand-yellow text-xl"></i>
+                            <div><div class="font-bold text-sm">Flexible Hours</div><div class="text-gray-500 text-xs">Evenings & weekends</div></div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-brand-yellow p-4 rounded-xl">
+                            <i class="fa-solid fa-shield-halved text-brand-dark text-xl"></i>
+                            <div><div class="font-bold text-sm text-brand-dark">Fully Insured</div><div class="text-brand-dark/70 text-xs">£5M public liability</div></div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                            <i class="fa-solid fa-trophy text-brand-yellow text-xl"></i>
+                            <div><div class="font-bold text-sm">Award Winning</div><div class="text-gray-500 text-xs">15+ years proven craft</div></div>
+                        </div>
+                        <div class="flex items-center gap-3 bg-gray-50 p-4 rounded-xl">
+                            <i class="fa-solid fa-leaf text-brand-yellow text-xl"></i>
+                            <div><div class="font-bold text-sm">Eco Paints</div><div class="text-gray-500 text-xs">Low-VOC, sustainable</div></div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap gap-4">
+                        <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold px-8 py-4 rounded-lg hover:bg-yellow-400 transition-all">
+                            Get Free Quote <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="portfolio.html" class="inline-flex items-center gap-2 border-2 border-brand-dark text-brand-dark font-bold px-8 py-4 rounded-lg hover:bg-brand-dark hover:text-white transition-all">
+                            View Portfolio
+                        </a>
+                    </div>
+                </div>
+                <div class="grid grid-cols-2 gap-4 h-[540px]">
+                    <div class="intro-img row-span-2">
+                    <div id="commercial-gallery" class="swiper service-swiper h-full rounded-[24px] overflow-hidden shadow-2xl">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/IMG_3191.jpeg" class="lightgallery-item h-full">
+                                    <img src="images/IMG_3191.jpeg" alt="Commercial Project" class="h-full w-full object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/OFC2.jpeg" class="lightgallery-item h-full">
+                                    <img src="images/OFC2.jpeg" alt="Office Painting" class="h-full w-full object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/Office Painter Ryton - Johnson Decorators ltd.jpeg" class="lightgallery-item h-full">
+                                    <img src="images/Office Painter Ryton - Johnson Decorators ltd.jpeg" alt="Corporate Environment" class="h-full w-full object-cover">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    </div>
+                    <div class="intro-img" style="height: 256px;">
+                        <img src="images/PHOTO-2026-03-12-11-40-26.jpg" alt="Commercial Exterior" loading="lazy">
+                    </div>
+                    <div class="intro-img" style="height: 268px;">
+                        <img src="images/OFC.jpeg" alt="Commercial Woodwork" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTORS (with image backgrounds) -->
+    <section class="py-24 bg-brand-dark">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-3">Industries</span>
+                <h2 class="text-4xl md:text-5xl font-heading font-bold text-white">Sectors We <span class="italic text-brand-yellow">Serve</span></h2>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <div class="sector-card">
+                    <img src="images/OFC.jpeg" alt="Corporate Offices" loading="lazy">
+                    <div class="sector-overlay">
+                        <i class="fa-solid fa-building sector-icon"></i>
+                        <h3 class="text-white font-heading font-bold text-xl mb-1">Offices &amp; Corporate</h3>
+                        <p class="text-gray-300 text-sm">Professional environments painted to inspire productivity.</p>
+                    </div>
+                </div>
+
+                <div class="sector-card">
+                    <img src="images/commercial-retail.png" alt="Retail Showroom" loading="lazy">
+                    <div class="sector-overlay">
+                        <i class="fa-solid fa-store sector-icon"></i>
+                        <h3 class="text-white font-heading font-bold text-xl mb-1">Retail &amp; Showrooms</h3>
+                        <p class="text-gray-300 text-sm">Brand-aligned colour schemes to attract customers.</p>
+                    </div>
+                </div>
+
+                <div class="sector-card">
+                    <img src="images/PHOTO-2026-03-12-11-46-31 3.jpg" alt="Hospitality" loading="lazy">
+                    <div class="sector-overlay">
+                        <i class="fa-solid fa-utensils sector-icon"></i>
+                        <h3 class="text-white font-heading font-bold text-xl mb-1">Restaurants &amp; Hospitality</h3>
+                        <p class="text-gray-300 text-sm">Ambience-defining finishes for hotels, bars, and cafes.</p>
+                    </div>
+                </div>
+
+                <div class="sector-card">
+                    <img src="images/PHOTO-2026-03-12-11-46-31 5.jpg" alt="Schools" loading="lazy">
+                    <div class="sector-overlay">
+                        <i class="fa-solid fa-school sector-icon"></i>
+                        <h3 class="text-white font-heading font-bold text-xl mb-1">Schools &amp; Colleges</h3>
+                        <p class="text-gray-300 text-sm">Safe, durable, vibrant coatings for education spaces.</p>
+                    </div>
+                </div>
+
+                <div class="sector-card">
+                    <img src="images/PHOTO-2026-03-12-12-01-06.jpg" alt="Churches Painting" loading="lazy">
+                    <div class="sector-overlay">
+                        <i class="fa-solid fa-church sector-icon"></i>
+                        <h3 class="text-white font-heading font-bold text-xl mb-1">Churches Painting</h3>
+                        <p class="text-gray-300 text-sm">Low-VOC, hygienic paints for sensitive environments.</p>
+                    </div>
+                </div>
+
+                <div class="sector-card">
+                    <img src="images/commercial-industrial.png" alt="Industrial Warehouse" loading="lazy">
+                    <div class="sector-overlay">
+                        <i class="fa-solid fa-warehouse sector-icon"></i>
+                        <h3 class="text-white font-heading font-bold text-xl mb-1">Industrial &amp; Warehouses</h3>
+                        <p class="text-gray-300 text-sm">Heavy-duty coatings built to withstand extreme conditions.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ALTERNATING SERVICE SECTIONS -->
+    <section class="py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-28">
+
+            <!-- Service 1 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="alt-section-img"><img src="images/PHOTO-2026-03-12-11-50-09.jpg" alt="Exterior Commercial" loading="lazy"></div>
+                <div>
+                    <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-3">01</span>
+                    <h3 class="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-5">Interior &amp; Exterior<br><span class="text-brand-yellow italic">Commercial Painting</span></h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">From expansive office interiors to full building facades, we deliver durable, high-quality finishes suited for commercial-scale demands — using professional spraying equipment and premium commercial-grade paints.</p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold px-7 py-4 rounded-lg hover:bg-yellow-400 transition-all">
+                        Get a Quote <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Service 2 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-3">02</span>
+                    <h3 class="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-5">New Builds &amp;<br><span class="text-brand-yellow italic">Maintenance Contracts</span></h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">We partner with developers and property managers for complete new build decorating contracts and planned maintenance programmes — ensuring your asset always looks its best, year after year.</p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold px-7 py-4 rounded-lg hover:bg-yellow-400 transition-all">
+                        Enquire Now <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="alt-section-img order-1 lg:order-2"><img src="images/PHOTO-2026-03-12-11-49-02.jpg" alt="New Build Painting" loading="lazy"></div>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="alt-section-img"><img src="images/PHOTO-2026-03-12-11-49-35 5.jpg" alt="Premium Materials" loading="lazy"></div>
+                <div>
+                    <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-3">03</span>
+                    <h3 class="text-3xl md:text-4xl font-heading font-bold text-brand-dark mb-5">Premium Materials &amp;<br><span class="text-brand-yellow italic">Floor Coatings</span></h3>
+                    <p class="text-gray-600 leading-relaxed mb-6">We supply and apply commercial-grade epoxy floor coatings, anti-slip coverings, and line markings for warehouses, car parks, and commercial kitchens — using only tested, certified products.</p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold px-7 py-4 rounded-lg hover:bg-yellow-400 transition-all">
+                        Get a Quote <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY STRIP -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-3">Recent Work</span>
+                <h2 class="text-4xl font-heading font-bold text-brand-dark">Commercial <span class="italic text-brand-yellow">Showcase</span></h2>
+            </div>
+            <div class="gallery-strip">
+                <div><img src="images/commercial-hero.png" alt="Commercial Lobby" loading="lazy"></div>
+                <div><img src="images/commercial-retail.png" alt="Retail Finish" loading="lazy"></div>
+                <div><img src="images/commercial-industrial.png" alt="Industrial Spraying" loading="lazy"></div>
+                <div><img src="images/OFC2.jpeg" alt="Modern Office" loading="lazy"></div>
+            </div>
+            <div class="text-center mt-10">
+                <a href="portfolio.html" class="inline-flex items-center gap-2 border-2 border-brand-dark text-brand-dark font-bold px-8 py-4 rounded-lg hover:bg-brand-dark hover:text-white transition-all">
+                    View Full Portfolio <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-3">Our Approach</span>
+                <h2 class="text-4xl font-heading font-bold text-brand-dark">How We Work <span class="italic text-brand-yellow">With You</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="process-step"><div class="step-number">1</div><h3 class="font-bold text-lg mb-2">Site Survey</h3><p class="text-gray-500 text-sm leading-relaxed">Free on-site assessment with a detailed, transparent quote provided.</p></div>
+                <div class="process-step"><div class="step-number">2</div><h3 class="font-bold text-lg mb-2">Project Planning</h3><p class="text-gray-500 text-sm leading-relaxed">We plan around your business hours to minimise any disruption whatsoever.</p></div>
+                <div class="process-step"><div class="step-number">3</div><h3 class="font-bold text-lg mb-2">Professional Execution</h3><p class="text-gray-500 text-sm leading-relaxed">Our skilled commercial team delivers rapid, high-quality results to an exacting standard.</p></div>
+                <div class="process-step"><div class="step-number">4</div><h3 class="font-bold text-lg mb-2">Sign-Off &amp; Aftercare</h3><p class="text-gray-500 text-sm leading-relaxed">Final walkthrough, full clean-up, and dedicated aftercare support included.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="cta-overlay"></div>
+        <div class="max-w-4xl mx-auto px-4 relative z-10">
+            <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] text-sm mb-4">Start Your Project</span>
+            <h2 class="text-5xl md:text-6xl font-heading font-bold mb-6">Ready to Transform Your <span class="text-brand-yellow italic">Business?</span></h2>
+            <p class="text-gray-300 text-lg mb-10">Get a free site survey and no-obligation quote. We'll work around your schedule.</p>
+            <a href="contact.html" class="inline-flex items-center gap-3 bg-brand-yellow text-black font-bold px-12 py-5 rounded-full text-lg hover:bg-yellow-400 transition-all shadow-2xl">
+                Get Free Quote <i class="fa-solid fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="animate-fade-in">
+                    <div class="footer-logo">
+                        <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[120px] w-auto object-contain" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We transform ordinary spaces into extraordinary masterpieces with premium materials, artistic precision, and unmatched professionalism. All Rights Reserved.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jjohnsondecorators" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://uk.pinterest.com/johnsondecorators/" target="_blank" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://wa.me/+447827931007" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <a href="domestic-painting.html" class="footer-link">Domestic Painting</a>
+                    <a href="interior-painting.html" class="footer-link">Interior Painting</a>
+                    <a href="exterior-painting.html" class="footer-link">Exterior Painting</a>
+                    <a href="wallpapering.html" class="footer-link">Wallpapering</a>
+                    <a href="plastering.html" class="footer-link">Plastering</a>
+                    <a href="wood-painting.html" class="footer-link">Wood Painting</a>
+                    <a href="school-colleges-painting.html" class="footer-link">School and Colleges Painting</a>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                    <a href="terms-and-conditions.html" class="footer-link">Terms of Service</a>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:+447827931007" class="hover:text-brand-yellow transition-colors">07827931007</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>johnsondecoratorsltd@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+                <p>Design and Developed by <a href="https://kyleinfotech.co.in/" class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    
+    
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        const btn = document.getElementById('mobileMenuBtn'), menu = document.getElementById('mobileMenu');
+        btn.addEventListener('click', () => { menu.classList.toggle('active'); btn.querySelector('i').classList.toggle('fa-bars'); btn.querySelector('i').classList.toggle('fa-xmark'); });
+
+        // Initialize lightGallery
+        if (document.getElementById('commercial-gallery')) {
+            lightGallery(document.getElementById('commercial-gallery'), {
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                selector: '.lightgallery-item'
+            });
+        }
+
+        // Initialize Swiper
+        const swiper = new Swiper('.service-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+

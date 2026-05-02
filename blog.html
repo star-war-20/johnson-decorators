@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Johnson Decorators - Expert Tips & Trends</title>
+    <meta name="description" content="Read the latest news, interior design trends, and expert painting tips from the professional decorators at Johnson Decorators.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#F5A623',
+                        'brand-gold': '#F5A623',
+                        'brand-dark': '#1a1a1a',
+                        'brand-darker': '#111111',
+                        'brand-teal': '#1a4548',
+                        'brand-blue': '#0d6efd',
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; font-size: 17px; overflow-x: hidden; background: #fafafa; }
+        
+        /* Navbar & Top Bar */
+        .announcement-bar { background: linear-gradient(90deg, #F5A623 0%, #f0c143 50%, #F5A623 100%); animation: shimmer 3s ease-in-out infinite; }
+        @keyframes shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .main-nav { background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-link-custom { position: relative; transition: color 0.3s ease; }
+        .nav-link-custom::after { content: ''; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px; background: #F5A623; transition: all 0.3s ease; transform: translateX(-50%); }
+        .nav-link-custom:hover::after { width: 100%; }
+        .nav-link-custom:hover { color: #F5A623 !important; }
+        .logo-text { border: 2.5px solid white; border-radius: 8px; padding: 6px 16px; line-height: 1.1; }
+        
+        /* Hero */
+        .blog-hero { position: relative; height: 450px; background: url('images/IMG_3191 (1).jpeg') center center / cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: white; }
+        .blog-hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)); z-index: 1; }
+        .blog-hero-content { position: relative; z-index: 2; }
+
+        /* Blog Grid */
+        .blog-card { background: #ffffff; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: all 0.4s ease; border: 1px solid rgba(0,0,0,0.03); display: flex; flex-direction: column; height: 100%; }
+        .blog-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(245, 166, 35, 0.15); border-color: rgba(245, 166, 35, 0.3); }
+        .blog-img-wrap { width: 100%; height: 240px; overflow: hidden; position: relative; }
+        .blog-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .blog-card:hover .blog-img-wrap img { transform: scale(1.05); }
+        .blog-category { position: absolute; top: 16px; left: 16px; background: #F5A623; color: black; font-weight: 700; font-size: 11px; padding: 6px 12px; border-radius: 20px; text-transform: uppercase; letter-spacing: 1px; }
+        .blog-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .blog-meta { font-size: 13px; color: #888; margin-bottom: 12px; font-weight: 500; display: flex; gap: 16px; }
+        .blog-meta i { color: #F5A623; }
+        .blog-title { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; line-height: 1.3; transition: color 0.3s ease; }
+        .blog-card:hover .blog-title { color: #F5A623; }
+        .blog-excerpt { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 24px; flex-grow: 1; }
+        .read-more-btn { display: inline-flex; items-center; gap: 8px; font-weight: 700; font-size: 14px; color: #1a1a1a; text-decoration: none; border-bottom: 2px solid #F5A623; padding-bottom: 4px; align-self: flex-start; transition: all 0.3s ease; }
+        .read-more-btn:hover { color: #F5A623; gap: 12px; }
+
+        /* Footer */
+        .main-footer { background: #111111; color: #ffffff; padding: 80px 0 30px; }
+        .mobile-menu.active { display: block; }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+        .footer-link { display: block; color: #999; margin-bottom: 12px; transition: color 0.3s ease; text-decoration: none; font-size: 16px; }
+        .footer-link:hover { color: #F5A623; }
+        .footer-heading { color: white; font-size: 20px; font-weight: 700; margin-bottom: 25px; }
+        .footer-contact-item { display: flex; gap: 12px; margin-bottom: 15px; color: #999; font-size: 16px; }
+        .footer-bottom { border-top: 1px solid #333; margin-top: 50px; padding-top: 30px; text-align: center; color: #777; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar py-2 text-center">
+        <a href="contact.html" class="block text-center py-0.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide">
+            <i class="fa-solid fa-paintbrush mr-2"></i> Call Now &amp; Get 15% OFF On Your First Wall Painting Project! <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center no-underline">
+                    <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[130px] w-auto object-contain" loading="lazy">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Home</a>
+                    <a href="about.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="services.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline flex items-center gap-2">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                            <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                            <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                            <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                            <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                            <a href="plastering.html" class="dropdown-link">Plastering</a>
+                            <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                            <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Portfolio</a>
+                    <a href="blog.html" class="nav-link-custom text-brand-yellow font-bold text-[15px] no-underline">Blog</a>
+                    <a href="contact.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Contact</a>
+                </div>
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg no-underline hover:bg-yellow-400 transition-all">
+                        FREE QUOTE <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="blog-hero">
+        <div class="blog-hero-overlay"></div>
+        <div class="blog-hero-content container mx-auto px-4">
+            <span class="block text-brand-yellow font-bold uppercase tracking-widest mb-4">Inspiration & Tips</span>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6">Our Decorating <br> <span class="text-brand-yellow italic">Journal</span></h1>
+            <p class="text-gray-300 max-w-2xl mx-auto text-lg">Expert advice, color trends, and inspiration from master painters to help you transform your space.</p>
+        </div>
+    </section>
+
+    <!-- BLOG GRID SECTION -->
+    <section class="py-24 bg-[#fafafa]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                
+                <!-- Blog Post 1 -->
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <span class="blog-category">Trends</span>
+                        <img src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg" alt="Color Trends" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> Oct 15, 2026</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 5 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#" class="no-underline text-inherit">The Top 5 Color Trends Elevating Modern Homes in 2026</a></h2>
+                        <p class="blog-excerpt">Discover the warm, earthy tones and vibrant accents that are dominating interior design this year. Learn how to incorporate these palettes into your own space.</p>
+                        <a href="#" class="read-more-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <span class="blog-category">How-To</span>
+                        <img src="images/IMG_3192 (1).jpeg" alt="Preparation Tips" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> Oct 02, 2026</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 8 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#" class="no-underline text-inherit">The Secret to a Perfect Finish: Professional Prep Steps</a></h2>
+                        <p class="blog-excerpt">Any master decorator will tell you that 80% of a great paint job is the preparation. We share our professional checklist for preparing any room for paint.</p>
+                        <a href="#" class="read-more-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <span class="blog-category">Sustainability</span>
+                        <img src="images/IMG_3192.jpeg" alt="Eco Paints" loading="lazy">
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> Sep 28, 2026</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 4 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#" class="no-underline text-inherit">Why We Choose Eco-Friendly, Low-VOC Paints</a></h2>
+                        <p class="blog-excerpt">Protecting your family's health and the environment without compromising on finish quality. A deep dive into sustainable painting options.</p>
+                        <a href="#" class="read-more-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <span class="blog-category">Design</span>
+                        <!-- Placeholder using gradient as image generation failed earlier -->
+                        <div class="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center text-white/50">
+                            <i class="fa-solid fa-image text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> Sep 15, 2026</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 6 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#" class="no-underline text-inherit">Making a Statement: Designing the Perfect Feature Wall</a></h2>
+                        <p class="blog-excerpt">From bold colors and geometric patterns to textured wallpapers, explore creative ways to transform a blank wall into a stunning focal point.</p>
+                        <a href="#" class="read-more-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+                <!-- Blog Post 5 -->
+                <article class="blog-card">
+                    <div class="blog-img-wrap">
+                        <span class="blog-category">Exterior</span>
+                        <!-- Placeholder using gradient -->
+                        <div class="w-full h-full bg-gradient-to-bl from-teal-800 to-gray-900 flex items-center justify-center text-white/50">
+                            <i class="fa-solid fa-image text-4xl"></i>
+                        </div>
+                    </div>
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="fa-regular fa-calendar mr-2"></i> Sep 05, 2026</span>
+                            <span><i class="fa-regular fa-clock mr-2"></i> 7 min read</span>
+                        </div>
+                        <h2 class="blog-title"><a href="#" class="no-underline text-inherit">Curb Appeal 101: A Guide to Exterior House Painting</a></h2>
+                        <p class="blog-excerpt">Protect your home from the elements while boosting its aesthetic value. Learn the best times to paint exteriors and how to choose the right products.</p>
+                        <a href="#" class="read-more-btn">Read Full Article <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>
+
+            </div>
+            
+            <!-- Pagination -->
+            <div class="mt-20 flex justify-center items-center gap-4">
+                <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-brand-yellow hover:border-brand-yellow hover:text-black transition-all"><i class="fa-solid fa-chevron-left text-sm"></i></button>
+                <button class="w-10 h-10 rounded-full bg-brand-yellow text-black font-bold flex items-center justify-center">1</button>
+                <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-brand-yellow hover:border-brand-yellow hover:text-black transition-all font-bold">2</button>
+                <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-brand-yellow hover:border-brand-yellow hover:text-black transition-all font-bold">3</button>
+                <span class="text-gray-400">...</span>
+                <button class="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:bg-brand-yellow hover:border-brand-yellow hover:text-black transition-all"><i class="fa-solid fa-chevron-right text-sm"></i></button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="animate-fade-in">
+                    <div class="footer-logo">
+                        <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[120px] w-auto object-contain" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We transform ordinary spaces into extraordinary masterpieces with premium materials, artistic precision, and unmatched professionalism. All Rights Reserved.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jjohnsondecorators" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://uk.pinterest.com/johnsondecorators/" target="_blank" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://wa.me/+447827931007" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <a href="commercial-painting.html" class="footer-link">Interior Painting</a>
+                    <a href="interior-painting.html" class="footer-link">Exterior Painting</a>
+                    <a href="interior-painting.html" class="footer-link">Wallpapering</a>
+                    <a href="commercial-painting.html" class="footer-link">Plastering</a>
+                    <a href="commercial-painting.html" class="footer-link">Wood Panelling</a>
+                    <a href="commercial-painting.html" class="footer-link">School and Colleges Painting</a>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                    <a href="terms-and-conditions.html" class="footer-link">Terms of Service</a>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:+447827931007" class="hover:text-brand-yellow transition-colors">07827931007</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>johnsondecoratorsltd@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+                <p>Design and Developed by <a href="https://kyleinfotech.co.in/" class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
+
+
+
+
+

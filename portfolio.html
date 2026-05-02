@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Work | Johnson Decorators - Premium Portfolio</title>
+    <meta name="description"
+        content="Explore the Johnson Decorators portfolio. High-end residential and commercial painting projects, decorative finishes, and professional transformations.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#F5A623',
+                        'brand-dark': '#1a1a1a',
+                        'brand-darker': '#111111',
+                        'brand-blue': '#0d6efd',
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* ===== NAVBAR ===== */
+        .main-nav {
+            background: #111111;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link-custom {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #F5A623;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link-custom:hover::after { width: 100%; }
+        .nav-link-custom:hover { color: #F5A623 !important; }
+
+        .logo-text {
+            border: 2.5px solid white;
+            border-radius: 8px;
+            padding: 6px 16px;
+            line-height: 1.1;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .work-hero {
+            position: relative;
+            height: 450px;
+            background: url('images/PHOTO-2026-03-12-11-49-02.jpg') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .work-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4));
+            z-index: 1;
+        }
+
+        .work-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== FILTER SYSTEM ===== */
+        .filter-btn {
+            padding: 12px 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 13px;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid #eee;
+            color: #666;
+        }
+
+        #filter-buttons .active {
+            background-color: #F5A623;
+            color: #1a1a1a;
+            border-color: #F5A623;
+        }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+
+        .filter-btn.active {
+            background: #F5A623;
+            color: black;
+            border-color: #F5A623;
+            box-shadow: 0 10px 20px -5px rgba(245, 166, 35, 0.4);
+        }
+
+        .filter-btn:hover:not(.active) {
+            background: #f8f8f8;
+            border-color: #ddd;
+        }
+
+        /* ===== PORTFOLIO GRID ===== */
+        .portfolio-card {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .portfolio-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.8s ease;
+        }
+
+        .portfolio-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 60%);
+            opacity: 0;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 40px;
+        }
+
+        .portfolio-card:hover .portfolio-overlay { opacity: 1; }
+        .portfolio-card:hover img { transform: scale(1.1); }
+
+        .portfolio-card.hidden { display: none; }
+
+        /* ===== FOOTER ===== */
+        .main-footer {
+            background: #111111;
+            color: #ffffff;
+            padding: 80px 0 30px;
+        }
+
+        .footer-link {
+            display: block;
+            color: #999;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: #F5A623;
+            transform: translateX(8px);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #999;
+            font-size: 16px;
+        }
+
+        .announcement-bar {
+            background: #F5A623;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div class="announcement-bar py-2 text-center">
+        <a href="contact.html"
+            class="block text-center py-0.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide">
+            <i class="fa-solid fa-paintbrush mr-2"></i>
+            Call Now &amp; Get 15% OFF On Your First Wall Painting Project!
+            <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="main-nav py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center no-underline">
+                    <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[130px] w-auto object-contain" loading="lazy">
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Home</a>
+                    <a href="about.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="services.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline flex items-center gap-2">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                            <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                            <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                            <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                            <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                            <a href="plastering.html" class="dropdown-link">Plastering</a>
+                            <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                            <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html" class="nav-link-custom text-brand-yellow font-bold text-[15px] no-underline">Portfolio</a>
+                    <a href="blog.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Blog</a>
+                    <a href="contact.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg no-underline hover:bg-yellow-400 transition-all">
+                        FREE QUOTE <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn" class="lg:hidden text-white text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="work-hero">
+        <div class="work-hero-overlay"></div>
+        <div class="work-hero-content container mx-auto px-4">
+            <span class="block text-brand-yellow font-bold uppercase tracking-[0.3em] mb-4">Portfolio</span>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6">Masterpieces in <br> <span class="italic text-brand-yellow">Every Project</span></h1>
+            <div class="flex justify-center items-center gap-4 text-sm font-medium">
+                <a href="index.html" class="hover:text-brand-yellow">Home</a>
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                <span class="text-gray-400">Our Work</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FILTER SECTION ===== -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div id="filter-buttons" class="flex flex-wrap justify-center gap-4">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="interior">Interior</button>
+                <button class="filter-btn" data-filter="exterior">Exterior</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+                <button class="filter-btn" data-filter="decorative">Decorative</button>
+                <button class="filter-btn" data-filter="wallpapering">Wallpapering</button>
+                <button class="filter-btn" data-filter="wood-painting">Wood Painting</button>
+                <button class="filter-btn" data-filter="plastering">Plastering</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PORTFOLIO GRID ===== -->
+    <section class="pb-24">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div id="portfolioGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project 1 (Interior) -->
+                <div class="portfolio-card lightgallery-item" data-category="interior" data-src="images/PHOTO-2026-03-12-11-49-35 5.jpg" data-sub-html="<h4>Azure Modern Living</h4><p>Premium Interior Painting</p>">
+                    <img src="images/IMG_3190 (1).jpeg" alt="Azure Modern Living" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Interior Painting</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Azure Modern Living</h3>
+                    </div>
+                </div>
+
+                <!-- Project 2 (Exterior) -->
+                <div class="portfolio-card lightgallery-item" data-category="exterior" data-src="images/service-detail-exterior.png" data-sub-html="<h4>Modern Coastal Villa</h4><p>Premium Exterior Resilience Painting</p>">
+                    <img src="images/service-exterior.png" alt="Modern Coastal Villa Exterior" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Exterior Resilience</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Modern Coastal Villa</h3>
+                    </div>
+                </div>
+
+                <!-- Project 3 (Commercial) -->
+                <div class="portfolio-card lightgallery-item" data-category="commercial" data-src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg" data-sub-html="<h4>Tech Hub HQ</h4><p>Scalable Commercial Solutions</p>">
+                    <img src="images/IMG_3192 (1).jpeg" alt="Tech Hub HQ" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Commercial Painting</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Tech Hub HQ</h3>
+                    </div>
+                </div>
+
+                <!-- Project 4 (Decorative) -->
+                <div class="portfolio-card lightgallery-item" data-category="decorative" data-src="images/IMG_3192.jpeg" data-sub-html="<h4>Gilded Texture Wall</h4><p>Artistic Decorative Finishes</p>">
+                    <img src="images/IMG_3193.jpeg" alt="Gilded Texture Wall" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Decorative Art</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Gilded Texture Wall</h3>
+                    </div>
+                </div>
+
+                <!-- Project 5 (Interior) -->
+                <div class="portfolio-card lightgallery-item" data-category="interior" data-src="images/PHOTO-2026-03-12-11-41-09 4.jpg" data-sub-html="<h4>Scandinavian Retreat</h4><p>Clean and Minimalist Finishes</p>">
+                    <img src="images/PHOTO-2026-03-12-11-50-09.jpg" alt="Scandinavian Retreat" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Interior Painting</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Scandinavian Retreat</h3>
+                    </div>
+                </div>
+
+                <!-- Project 6 (Exterior) -->
+                <div class="portfolio-card lightgallery-item" data-category="exterior" data-src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg" data-sub-html="<h4>Classic Brick Refresh</h4><p>Protective Exterior Coating</p>">
+                    <img src="images/PHOTO-2026-03-12-11-49-02.jpg" alt="Classic Brick Refresh" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Exterior Painting</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Classic Brick Refresh</h3>
+                    </div>
+                </div>
+
+                <!-- Project 7 (Commercial) -->
+                <div class="portfolio-card lightgallery-item" data-category="commercial" data-src="images/PHOTO-2026-03-12-11-58-44 3.jpg" data-sub-html="<h4>Grand Bistro Refit</h4><p>High-Traffic Durable Finishes</p>">
+                    <img src="images/PHOTO-2026-03-12-11-58-44.jpg" alt="Grand Bistro Refit" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Commercial Projects</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Grand Bistro Refit</h3>
+                    </div>
+                </div>
+
+                <!-- Project 8 (Decorative) -->
+                <div class="portfolio-card lightgallery-item" data-category="decorative" data-src="images/PHOTO-2026-03-12-11-46-31 3.jpg" data-sub-html="<h4>Renaissance Stucco</h4><p>Authentic Traditional Finishes</p>">
+                    <img src="images/PHOTO-2026-03-12-11-46-31 5.jpg" alt="Renaissance Stucco" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Artistic Finishes</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Renaissance Stucco</h3>
+                    </div>
+                </div>
+
+                <!-- Project 9 (Wallpapering) -->
+                <div class="portfolio-card lightgallery-item" data-category="wallpapering" data-src="images/wallpapering-portfolio-1.png" data-sub-html="<h4>Victorian Damask</h4><p>Luxury Pattern Installation</p>">
+                    <img src="images/wallpapering-portfolio-1.png" alt="Victorian Damask Wallpaper" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Wallpapering</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Victorian Damask</h3>
+                    </div>
+                </div>
+
+                <!-- Project 10 (Wood Painting) -->
+                <div class="portfolio-card lightgallery-item" data-category="wood-painting" data-src="images/wood-painting-portfolio-1.png" data-sub-html="<h4>Bespoke Kitchen Spray</h4><p>Factory-Grade Wood Finishes</p>">
+                    <img src="images/wood-painting-portfolio-1.png" alt="Bespoke Kitchen Cabinet Spraying" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Wood Painting</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Bespoke Kitchen Spray</h3>
+                    </div>
+                </div>
+
+                <!-- Project 11 (Plastering) -->
+                <div class="portfolio-card lightgallery-item" data-category="plastering" data-src="images/plastering-portfolio-1.png" data-sub-html="<h4>Elite Surface Prep</h4><p>Ultra-Smooth Plastering</p>">
+                    <img src="images/plastering-portfolio-1.png" alt="Ultra-Smooth Plastering Finish" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Plastering</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Elite Surface Prep</h3>
+                    </div>
+                </div>
+
+                <!-- Project 12 (Wallpapering) -->
+                <div class="portfolio-card lightgallery-item" data-category="wallpapering" data-src="images/PHOTO-2026-03-12-11-41-09.jpg" data-sub-html="<h4>Floral Feature Staircase</h4><p>High-End Residential Wallpapering</p>">
+                    <img src="images/PHOTO-2026-03-12-11-41-09.jpg" alt="Floral Feature Staircase" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Wallpapering</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Floral Feature Staircase</h3>
+                    </div>
+                </div>
+
+                <!-- Project 13 (Wood Painting) -->
+                <div class="portfolio-card lightgallery-item" data-category="wood-painting" data-src="images/PHOTO-2026-03-12-11-46-31.jpg" data-sub-html="<h4>Modern Cabinet Restoration</h4><p>Premium Satin Finish Woodwork</p>">
+                    <img src="images/PHOTO-2026-03-12-11-46-31.jpg" alt="Modern Cabinet Restoration" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Wood Painting</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Modern Cabinet Restoration</h3>
+                    </div>
+                </div>
+
+                <!-- Project 14 (Plastering) -->
+                <div class="portfolio-card lightgallery-item" data-category="plastering" data-src="images/IMG_3193.jpeg" data-sub-html="<h4>Flawless Base Prep</h4><p>Precision Wall Skimming</p>">
+                    <img src="images/IMG_3193.jpeg" alt="Precision Wall Skimming" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Plastering</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Flawless Base Prep</h3>
+                    </div>
+                </div>
+
+                <!-- Project 15 (Exterior) -->
+                <div class="portfolio-card lightgallery-item" data-category="exterior" data-src="images/PHOTO-2026-03-12-11-40-26.jpg" data-sub-html="<h4>Premium Estate Revive</h4><p>Professional Exterior Transformation</p>">
+                    <img src="images/PHOTO-2026-03-12-11-40-26.jpg" alt="Premium Estate Revive Exterior" loading="lazy">
+                    <div class="portfolio-overlay">
+                        <span class="text-brand-yellow font-bold text-xs uppercase tracking-widest mb-2">Exterior Projects</span>
+                        <h3 class="text-white text-2xl font-heading font-bold">Premium Estate Revive</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CALL TO ACTION ===== -->
+    <section class="py-24 bg-brand-dark text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-4xl md:text-6xl font-heading font-bold mb-8">Ready to be our next <br> <span class="text-brand-yellow italic">Success Story?</span></h2>
+            <p class="text-gray-400 text-lg mb-12">Whether it's a single room or a commercial complex, we bring the same level of excellence to every project.</p>
+            <a href="contact.html" class="bg-brand-yellow text-black font-extrabold px-12 py-5 rounded-full text-lg hover:bg-yellow-400 transition-all inline-block shadow-2xl">
+                GET A FREE QUOTE
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER SECTION ===== -->
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="animate-fade-in">
+                    <div class="footer-logo">
+                        <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[120px] w-auto object-contain" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We transform ordinary spaces into extraordinary masterpieces with premium materials, artistic
+                        precision, and unmatched professionalism.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jjohnsondecorators" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://uk.pinterest.com/johnsondecorators/" target="_blank" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://wa.me/+447827931007" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <a href="interior-painting.html" class="footer-link">Interior Painting</a>
+                    <a href="exterior-painting.html" class="footer-link">Exterior Painting</a>
+                    <a href="wallpapering.html" class="footer-link">Wallpapering</a>
+                    <a href="plastering.html" class="footer-link">Plastering</a>
+                    <a href="wood-painting.html" class="footer-link">Wood Painting</a>
+                    <a href="school-colleges-painting.html" class="footer-link">School and Colleges Painting</a>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                    <a href="terms-and-conditions.html" class="footer-link">Terms of Service</a>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:+447827931007" class="hover:text-brand-yellow transition-colors">07827931007</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>johnsondecoratorsltd@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+                <p>Design and Developed by <a href="https://kyleinfotech.co.in/"
+                        class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <!-- lightGallery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <script>
+        // Initialize lightGallery
+        const gallery = lightGallery(document.getElementById('portfolioGrid'), {
+            plugins: [lgZoom, lgThumbnail],
+            selector: '.lightgallery-item:not(.hidden)', // Only show visible items in the lightbox
+            download: false,
+            speed: 500,
+            licenseKey: 'your_license_key' // Optional but good to have the space
+        });
+
+        // Portfolio Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.portfolio-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const filter = btn.getAttribute('data-filter');
+
+                // Active Link Toggle
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                // Card Visibility Toggle
+                cards.forEach(card => {
+                    const category = card.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        card.classList.remove('hidden');
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                    } else {
+                        card.classList.add('hidden');
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.9)';
+                    }
+                });
+
+                // REFRESH lightGallery after filtering
+                gallery.refresh();
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+

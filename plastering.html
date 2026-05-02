@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plastering Services | Johnson Decorators</title>
+    <meta name="description" content="Professional plastering and skimming services. Achieve smooth, perfect walls for your home or business.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { 'brand-yellow': '#F5A623' },
+                    fontFamily: { 'heading': ['Playfair Display', 'serif'], 'body': ['Montserrat', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background: #fafafa; }
+        .service-hero { background: #111; padding: 60px 0; text-align: center; color: white; border-bottom: 4px solid #F5A623; }
+        .sidebar-box { background: #fff; border-radius: 8px; border: 1px solid #eee; margin-bottom: 30px; overflow: hidden; }
+        .sidebar-title { background: #F5A623; color: #fff; padding: 15px 20px; font-weight: 700; }
+        .sidebar-list a { display: block; padding: 12px 20px; border-bottom: 1px solid #eee; color: #666; transition: 0.3s; }
+        .sidebar-list a:hover { color: #F5A623; padding-left: 25px; }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-[#111] py-4">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="index.html"><img src="images/logojn.png" alt="Logo" class="h-[130px]"></a>
+            <div class="hidden lg:flex space-x-8 text-white">
+                <a href="index.html" class="hover:text-brand-yellow">Home</a>
+                <a href="about.html" class="hover:text-brand-yellow">About Us</a>
+                
+                <!-- Services Dropdown -->
+                <div class="relative group flex items-center">
+                    <a href="services.html" class="text-brand-yellow flex items-center gap-2 no-underline">
+                        Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                        <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                        <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                        <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                        <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                        <a href="plastering.html" class="dropdown-link">Plastering</a>
+                        <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                        <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                    </div>
+                </div>
+
+                <a href="portfolio.html" class="hover:text-brand-yellow">Portfolio</a>
+                <a href="blog.html" class="hover:text-brand-yellow">Blog</a>
+                <a href="contact.html" class="hover:text-brand-yellow">Contact</a>
+            </div>
+        </div>
+    </nav>
+    <section class="service-hero">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold">Plastering & Skimming</h1>
+        <p class="text-gray-400 mt-4">The foundation of every great paint job is a perfectly smooth wall.</p>
+    </section>
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2">
+                    <div id="plastering-gallery" class="swiper service-swiper mb-8 rounded-xl overflow-hidden shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/service-detail-decorative.png" class="lightgallery-item">
+                                    <img src="images/service-detail-decorative.png" alt="Plastering Detail" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/IMG_3193.jpeg" class="lightgallery-item">
+                                    <img src="images/IMG_3193.jpeg" alt="Smooth Plaster Finish" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/master-artisan.png" class="lightgallery-item">
+                                    <img src="images/master-artisan.png" alt="Plastering Work" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                <h2 class="text-3xl font-heading font-bold mb-6">Expert Plastering Solutions</h2>
+                <p class="text-gray-600 mb-6">Whether you have damaged walls that need repair or you're looking for a smooth skimming finish on new plasterboard, our team provides expert plastering services that guarantee a perfect base for decoration.</p>
+                <h3 class="text-2xl font-heading font-bold mb-4">Our Services Include:</h3>
+                <ul class="list-disc pl-6 space-y-2 text-gray-600 mb-8">
+                    <li>Full Room Plastering</li>
+                    <li>Skimming over old plaster</li>
+                    <li>Artex Removal & Smoothing</li>
+                    <li>Plasterboard Installation (Dry Lining)</li>
+                    <li>Coving & Ornamental Plastering</li>
+                </ul>
+            </div>
+            <div class="lg:col-span-1">
+                <div class="sidebar-box">
+                    <div class="sidebar-title">Our Services</div>
+                    <div class="sidebar-list">
+                        <a href="interior-painting.html">Interior Painting</a>
+                        <a href="exterior-painting.html">Exterior Painting</a>
+                        <a href="wallpapering.html">Wallpapering</a>
+                        <a href="plastering.html">Plastering</a>
+                        <a href="wood-painting.html">Wood Painting</a>
+                        <a href="school-colleges-painting.html">School and Colleges Painting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="bg-[#111] text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12 text-sm">
+            <div>
+                <img src="images/logojn.png" alt="Logo" class="h-[120px] mb-6">
+                <p class="text-gray-400">Master decorators serving Ryton and the surrounding areas.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-yellow mb-6">Quick Links</h4>
+                <a href="index.html" class="block mb-2 hover:text-brand-yellow">Home</a>
+                <a href="services.html" class="block mb-2 hover:text-brand-yellow">Services</a>
+                <a href="portfolio.html" class="block mb-2 hover:text-brand-yellow">Portfolio</a>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-yellow mb-6">Social</h4>
+                <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" class="block mb-2 hover:text-brand-yellow"><i class="fa-brands fa-instagram mr-2"></i> Instagram</a>
+                <a href="https://www.facebook.com/jjohnsondecorators" class="block mb-2 hover:text-brand-yellow"><i class="fa-brands fa-facebook-f mr-2"></i> Facebook</a>
+            </div>
+            <div>
+                <h4 class="font-bold text-brand-yellow mb-6">Contact</h4>
+                <p class="mb-2">07827931007</p>
+                <p class="mb-2">johnsondecoratorsltd@gmail.com</p>
+                <p class="mb-4">122 Grayling Wy, Ryton NE40 3BZ</p>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 mt-12 pt-8 border-t border-white/10 text-center text-gray-500 text-sm">
+            <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+            <p>Design and Developed by <a href="https://kyleinfotech.co.in/" class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+        </div>
+    </footer>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- lightGallery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.service-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Initialize lightGallery
+        if (document.getElementById('plastering-gallery')) {
+            lightGallery(document.getElementById('plastering-gallery'), {
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                selector: '.lightgallery-item'
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exterior Painting | Johnson Decorators</title>
+    <meta name="description" content="Premium exterior painting services. Protect and beautify your home with expert decorators.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#F5A623',
+                        'brand-gold': '#F5A623',
+                        'brand-dark': '#1a1a1a',
+                        'brand-darker': '#111111',
+                        'brand-teal': '#1a4548',
+                        'brand-blue': '#0d6efd',
+                        'brand-orange': '#ea580c', // from reference image
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" />
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; font-size: 16px; overflow-x: hidden; background: #fafafa; color: #333; line-height: 1.6; }
+        
+        /* Navbar & Top Bar */
+        .announcement-bar { background: linear-gradient(90deg, #F5A623 0%, #f0c143 50%, #F5A623 100%); animation: shimmer 3s ease-in-out infinite; }
+        @keyframes shimmer { 0%, 100% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } }
+        .main-nav { background: #111111; border-bottom: 1px solid rgba(255, 255, 255, 0.05); position: sticky; top: 0; z-index: 1000; }
+        .nav-link-custom { position: relative; transition: color 0.3s ease; }
+        .nav-link-custom::after { content: ''; position: absolute; bottom: -4px; left: 50%; width: 0; height: 2px; background: #F5A623; transition: all 0.3s ease; transform: translateX(-50%); }
+        .nav-link-custom:hover::after { width: 100%; }
+        .nav-link-custom:hover { color: #F5A623 !important; }
+        .logo-text { border: 2.5px solid white; border-radius: 8px; padding: 6px 16px; line-height: 1.1; }
+        
+        /* Hero */
+        .service-hero { background: #111; padding: 60px 0; text-align: center; color: white; border-bottom: 4px solid #F5A623; }
+        
+        /* Sidebar Styles */
+        .sidebar-box { background: #fff; border-radius: 8px; border: 1px solid #e5e7eb; overflow: hidden; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
+        .sidebar-title { background: #F5A623; color: #fff; padding: 15px 20px; font-weight: 700; font-size: 18px; }
+        .sidebar-list a { display: flex; justify-content: space-between; align-items: center; padding: 12px 20px; border-bottom: 1px solid #e5e7eb; color: #4b5563; font-weight: 500; transition: all 0.2s; }
+        .sidebar-list a:hover { color: #F5A623; background: #fdfdfd; padding-left: 24px; }
+        .sidebar-list a:last-child { border-bottom: none; }
+        
+        /* Form Styles */
+        .form-input { width: 100%; padding: 12px; border: 1px solid #e5e7eb; border-radius: 6px; margin-bottom: 15px; font-family: inherit; }
+        .form-input:focus { outline: none; border-color: #F5A623; box-shadow: 0 0 0 3px rgba(245, 166, 35, 0.2); }
+        
+        /* Main Content Styles */
+        .content-img { width: 100%; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .content-heading { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #1a1a1a; margin-bottom: 20px; }
+        .content-subheading { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; color: #1a1a1a; margin: 30px 0 15px; }
+        .content-list { list-style-type: disc; padding-left: 20px; margin-bottom: 20px; }
+        .content-list li { margin-bottom: 10px; color: #4b5563; }
+        
+        /* Footer */
+        .main-footer { background: #111111; color: #ffffff; padding: 80px 0 30px; }
+        .mobile-menu.active { display: block; }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+        .footer-link { display: block; color: #999; margin-bottom: 12px; transition: color 0.3s ease; text-decoration: none; font-size: 16px; }
+        .footer-link:hover { color: #F5A623; }
+        .footer-heading { color: white; font-size: 20px; font-weight: 700; margin-bottom: 25px; }
+        .footer-contact-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 15px; color: #999; font-size: 16px; }
+    </style>
+</head>
+<body>
+
+    <!-- ANNOUNCEMENT BAR -->
+    <div class="announcement-bar py-2 text-center">
+        <a href="contact.html" class="block text-center py-0.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide">
+            <i class="fa-solid fa-paintbrush mr-2"></i> Call Now &amp; Get 15% OFF On Your First Wall Painting Project! <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+    </div>
+
+    <!-- NAVIGATION -->
+    <nav class="main-nav py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <a href="index.html" class="flex items-center no-underline">
+                    <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[130px] w-auto object-contain" loading="lazy">
+                </a>
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Home</a>
+                    <a href="about.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="services.html" class="nav-link-custom text-brand-yellow font-bold text-[15px] no-underline flex items-center gap-2">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                            <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                            <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                            <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                            <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                            <a href="plastering.html" class="dropdown-link">Plastering</a>
+                            <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                            <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Portfolio</a>
+                    <a href="blog.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Blog</a>
+                    <a href="contact.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="service-hero">
+        <div class="max-w-7xl mx-auto px-4">
+            <h1 class="text-4xl md:text-5xl font-heading font-bold">Exterior Painting Services</h1>
+            <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Enhancing curb appeal and protecting your property from the elements.</p>
+        </div>
+    </section>
+
+    <!-- MAIN CONTENT AREA -->
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                
+                <!-- LEFT COLUMN: Main Content -->
+                <div class="lg:col-span-2">
+                    <div id="exterior-gallery" class="swiper service-swiper mb-8 rounded-xl overflow-hidden shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/PHOTO-2026-03-12-11-40-26.jpg" class="lightgallery-item">
+                                    <img src="images/PHOTO-2026-03-12-11-40-26.jpg" alt="Commercial Exterior" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/PHOTO-2026-03-12-11-49-02.jpg" class="lightgallery-item">
+                                    <img src="images/PHOTO-2026-03-12-11-49-02.jpg" alt="Residential Exterior" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/House Painting Services Ryton - Johnson Decorators ltd.jpg" class="lightgallery-item">
+                                    <img src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg" alt="Exterior House Painting" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/vanimage.jpeg" class="lightgallery-item">
+                                    <img src="images/vanimage.jpeg" alt="Johnson Decorators Van" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                    
+                    <h2 class="content-heading">Professional Exterior Painting in London</h2>
+                    <p class="text-gray-600 mb-4">The exterior of your property is the first thing people see. A high-quality exterior paint job not only boosts curb appeal but also provides a vital layer of protection against the harsh British weather.</p>
+                    <p class="text-gray-600 mb-6">At Johnson Decorators, we specialize in durable, weather-resistant finishes that stand the test of time. Our meticulous approach ensures that your property looks stunning and remains protected for years to come.</p>
+
+                    <h3 class="content-subheading">Why Invest in Exterior Painting?</h3>
+                    <p class="text-gray-600 mb-4">Regular exterior maintenance is crucial for the longevity of your property. Here are the key benefits:</p>
+                    <ul class="content-list">
+                        <li><strong>Weather Protection:</strong> We use advanced coatings that shield your walls from rain, wind, and UV rays.</li>
+                        <li><strong>Prevent Damage:</strong> Proper painting seals surfaces, preventing rot, mold, and moisture-related structural issues.</li>
+                        <li><strong>Increased Value:</strong> A well-maintained exterior significantly increases the market value of your property.</li>
+                        <li><strong>Enhanced Curb Appeal:</strong> Make your home or business stand out with a fresh, modern look.</li>
+                    </ul>
+
+                    <h3 class="content-subheading">Our Exterior Painting Process</h3>
+                    <p class="text-gray-600 mb-4">We follow a rigorous process to ensure a flawless and durable finish:</p>
+                    <p class="text-gray-600 mb-4"><strong>1. Surface Cleaning:</strong> We power wash or scrub surfaces to remove dirt, mildew, and loose paint.</p>
+                    <p class="text-gray-600 mb-4"><strong>2. Detailed Preparation:</strong> We scrape off old paint, sand rough areas, and fill cracks to create a smooth surface.</p>
+                    <p class="text-gray-600 mb-6"><strong>3. Priming & Painting:</strong> We apply high-quality primers and premium weather-resistant paints for maximum adhesion and durability.</p>
+
+                    <hr class="my-8 border-gray-200">
+
+                    <h3 class="content-subheading">Frequently Asked Questions</h3>
+                    <div class="mb-8 space-y-4">
+                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-gray-800 mb-2 text-lg">What is the best time of year for exterior painting?</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">The best time is usually from late spring to early autumn when the weather is mild and dry, allowing the paint to cure properly.</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow">
+                            <h4 class="font-bold text-gray-800 mb-2 text-lg">How often should I repaint my exterior?</h4>
+                            <p class="text-gray-600 text-sm leading-relaxed">Most properties require repainting every 5-10 years, depending on the quality of the previous job and the exposure to the elements.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- RIGHT COLUMN: Sticky Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24">
+                        
+                        <!-- Our Services List -->
+                        <div class="sidebar-box">
+                            <div class="sidebar-title">Our Services</div>
+                            <div class="sidebar-list flex flex-col">
+                                <a href="domestic-painting.html">Domestic Painting <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                                <a href="interior-painting.html">Interior Painting <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                                <a href="exterior-painting.html">Exterior Painting <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                                <a href="wallpapering.html">Wallpapering <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                                <a href="plastering.html">Plastering <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                                <a href="wood-painting.html">Wood Painting <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                                <a href="school-colleges-painting.html">School and Colleges Painting <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                                <a href="commercial-painting.html">Commercial Painting <i class="fa-solid fa-chevron-right text-xs"></i></a>
+                            </div>
+                        </div>
+
+                        <!-- Get In Touch Form -->
+                        <div class="sidebar-box p-6">
+                            <h3 class="text-xl font-bold mb-4">Get In Touch</h3>
+                            <form>
+                                <input type="text" placeholder="Name" class="form-input">
+                                <input type="email" placeholder="Email Address" class="form-input">
+                                <input type="tel" placeholder="Phone Number" class="form-input">
+                                <select class="form-input text-gray-500">
+                                    <option value="" disabled selected>Service Type</option>
+                                    <option value="Domestic Painting">Domestic Painting</option>
+                                    <option value="Interior Painting">Interior Painting</option>
+                                    <option value="Exterior Painting">Exterior Painting</option>
+                                    <option value="Wallpapering">Wallpapering</option>
+                                    <option value="Plastering">Plastering</option>
+                                    <option value="Wood Painting">Wood Painting</option>
+                                    <option value="School and Colleges Painting">School and Colleges Painting</option>
+                                    <option value="Commercial Painting">Commercial Painting</option>
+                                </select>
+                                <textarea placeholder="Message" rows="4" class="form-input resize-none"></textarea>
+                                <button type="button" class="w-full bg-brand-yellow text-black font-bold py-3 rounded hover:bg-yellow-500 transition-colors">
+                                    Send Message
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="animate-fade-in">
+                    <div class="footer-logo">
+                        <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[120px] w-auto object-contain" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We transform ordinary spaces into extraordinary masterpieces with premium materials, artistic precision, and unmatched professionalism. All Rights Reserved.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jjohnsondecorators" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://uk.pinterest.com/johnsondecorators/" target="_blank" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://wa.me/+447827931007" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <a href="domestic-painting.html" class="footer-link">Domestic Painting</a>
+                    <a href="interior-painting.html" class="footer-link">Interior Painting</a>
+                    <a href="exterior-painting.html" class="footer-link">Exterior Painting</a>
+                    <a href="wallpapering.html" class="footer-link">Wallpapering</a>
+                    <a href="plastering.html" class="footer-link">Plastering</a>
+                    <a href="wood-painting.html" class="footer-link">Wood Painting</a>
+                    <a href="school-colleges-painting.html" class="footer-link">School and Colleges Painting</a>
+                    <a href="commercial-painting.html" class="footer-link">Commercial Painting</a>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:+447827931007" class="hover:text-brand-yellow transition-colors">07827931007</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>johnsondecoratorsltd@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom mt-12 pt-8 border-t border-white/10 text-center">
+                <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+                <p class="text-xs text-gray-500 mt-2">Design and Developed by <a href="https://kyleinfotech.co.in/" class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- lightGallery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.service-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Initialize lightGallery
+        if (document.getElementById('exterior-gallery')) {
+            lightGallery(document.getElementById('exterior-gallery'), {
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                selector: '.lightgallery-item'
+            });
+        }
+    </script>
+</body>
+</html>

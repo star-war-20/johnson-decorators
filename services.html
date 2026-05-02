@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Services | Johnson Decorators - Premium Painting & Decoration</title>
+    <meta name="description"
+        content="Explore our wide range of premium painting and decoration services. From luxury interiors to durable exteriors, Johnson Decorators delivers excellence.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#F5A623',
+                        'brand-gold': '#F5A623',
+                        'brand-dark': '#1a1a1a',
+                        'brand-darker': '#111111',
+                        'brand-teal': '#1a4548',
+                        'brand-blue': '#0d6efd',
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        crossorigin="anonymous" />
+
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 17px;
+            overflow-x: hidden;
+            background: #ffffff;
+        }
+
+        /* ===== ANNOUNCEMENT BAR ===== */
+        .announcement-bar {
+            background: linear-gradient(90deg, #F5A623 0%, #f0c143 50%, #F5A623 100%);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        /* ===== NAVBAR ===== */
+        .main-nav {
+            background: #111111;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link-custom {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link-custom::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: #F5A623;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link-custom:hover::after { width: 100%; }
+        .nav-link-custom:hover { color: #F5A623 !important; }
+
+        .logo-text {
+            border: 2.5px solid white;
+            border-radius: 8px;
+            padding: 6px 16px;
+            line-height: 1.1;
+        }
+
+        /* ===== HERO SECTION ===== */
+        .services-hero {
+            position: relative;
+            height: 450px;
+            background: url('images/PHOTO-2026-03-12-11-50-09.jpg') center center / cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .services-hero-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.45));
+            z-index: 1;
+        }
+
+        .services-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ===== BILY STYLE SERVICES ===== */
+        .service-row-bily {
+            padding: 80px 0;
+            background: #ffffff;
+        }
+
+        .service-img-container {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .service-img-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-img-container::after {
+            content: "";
+            position: absolute;
+            border: 3px solid #F5A623;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .frame-right::after { top: 20px; left: 20px; }
+        .frame-left::after { top: 20px; right: 20px; }
+
+        .btn-bily-yellow {
+            background: #F5A623;
+            color: black;
+            font-weight: 800;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-size: 13px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-bily-blue {
+            background: #0d6efd;
+            color: white;
+            font-weight: 800;
+            padding: 12px 25px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            font-size: 13px;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-bily-yellow:hover, .btn-bily-blue:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        /* ===== STATS STRIP ===== */
+        .stats-dashboard {
+            background: #1a1a1a;
+            padding: 60px 0;
+            color: white;
+        }
+
+        .stat-item-bily {
+            text-align: center;
+        }
+
+        .stat-item-bily i {
+            font-size: 40px;
+            color: #F5A623;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* ===== WHY CHOOSE US ===== */
+        .why-us-bily {
+            background: #111111;
+            padding: 100px 0;
+            color: white;
+        }
+
+        .why-node {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .why-node i {
+            width: 60px;
+            height: 60px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: #F5A623;
+            transition: all 0.3s;
+        }
+
+        .why-node:hover i {
+            background: #F5A623;
+            color: black;
+        }
+
+        /* ===== FAQ REDESIGN POLISH ===== */
+        .faq-item-premium {
+            background: #ffffff;
+            border-radius: 20px;
+            margin-bottom: 24px;
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        .faq-item-premium:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+            border-color: rgba(245, 166, 35, 0.2);
+        }
+
+        .faq-item-premium.active {
+            border-color: #F5A623;
+            box-shadow: 0 20px 50px -10px rgba(245, 166, 35, 0.15);
+        }
+
+        .faq-trigger-premium {
+            width: 100%;
+            text-align: left;
+            padding: 30px 40px;
+            font-size: 20px;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            color: #1a1a1a;
+            background: none;
+            border: none;
+            outline: none;
+        }
+
+        .faq-icon-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            background: #f8f8f8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: #F5A623;
+            flex-shrink: 0;
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .faq-item-premium.active .faq-icon-box {
+            background: #F5A623;
+            color: white;
+            transform: rotate(180deg) scale(1.1);
+            box-shadow: 0 5px 15px rgba(245, 166, 35, 0.3);
+        }
+
+        .faq-content-premium {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0 40px 0 88px; /* Offset to align with text, not the badge */
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .faq-item-premium.active .faq-content-premium {
+            max-height: 500px;
+            padding-bottom: 40px;
+            opacity: 1;
+        }
+
+        .faq-q-badge {
+            display: inline-flex;
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, rgba(245, 166, 35, 0.15), rgba(245, 166, 35, 0.05));
+            color: #F5A623;
+            border-radius: 10px;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            font-weight: 900;
+            margin-right: 20px;
+            box-shadow: inset 0 0 0 1px rgba(245, 166, 35, 0.2);
+        }
+
+        .faq-footer-cta {
+            margin-top: 60px;
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        /* ===== FOOTER ===== */
+        .main-footer {
+            background: #111111;
+            color: #ffffff;
+            padding: 80px 0 30px;
+        }
+
+        .footer-link {
+            display: block;
+            color: #999;
+            margin-bottom: 12px;
+            transition: color 0.3s ease;
+            text-decoration: none;
+        }
+
+        .footer-link:hover { color: #F5A623; }
+
+        /* ===== WHATSAPP ===== */
+        
+
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: #111111;
+            padding: 20px;
+            z-index: 100;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .mobile-menu.active { display: block; }
+        /* ===== SERVICE SWIPER ===== */
+        .service-swiper {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+            z-index: 2;
+        }
+
+        .service-swiper img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+
+        .service-swiper .swiper-pagination-bullet-active {
+            background: #F5A623;
+        }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ==================== ANNOUNCEMENT BAR ==================== -->
+    <div class="announcement-bar py-2 text-center">
+        <a href="contact.html"
+            class="block text-center py-0.5 px-4 text-base md:text-lg font-bold text-black no-underline tracking-wide">
+            <i class="fa-solid fa-paintbrush mr-2"></i>
+            Call Now &amp; Get 15% OFF On Your First Wall Painting Project!
+            <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+        </a>
+    </div>
+
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="main-nav py-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center no-underline">
+                    <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[130px] w-auto object-contain" loading="lazy">
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <div class="hidden lg:flex items-center space-x-10">
+                    <a href="index.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Home</a>
+                    <a href="about.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">About Us</a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group h-20 flex items-center">
+                        <a href="services.html" class="nav-link-custom text-brand-yellow font-bold text-[15px] no-underline flex items-center gap-2">
+                            Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                        </a>
+                        <div class="nav-dropdown">
+                            <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                            <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                            <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                            <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                            <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                            <a href="plastering.html" class="dropdown-link">Plastering</a>
+                            <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                            <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                        </div>
+                    </div>
+
+                    <a href="portfolio.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Portfolio</a>
+                    <a href="blog.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Blog</a>
+                    <a href="contact.html" class="nav-link-custom text-gray-300 font-medium text-[15px] no-underline">Contact</a>
+                </div>
+
+                <!-- CTA Button -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="contact.html" class="inline-flex items-center gap-2 bg-brand-yellow text-black font-bold text-sm px-6 py-3 rounded-lg no-underline hover:bg-yellow-400 transition-all">
+                        FREE QUOTE <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                    </a>
+                </div>
+
+                <button id="mobileMenuBtn" class="lg:hidden text-white text-2xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobileMenu" class="mobile-menu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="services.html" class="text-brand-yellow">Services</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="blog.html">Blog</a>
+            <a href="contact.html">Contact</a>
+            <div class="mt-6">
+                <a href="contact.html" class="block w-full text-center bg-brand-yellow text-black font-bold py-3 rounded-lg">Get Free Quote</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section class="services-hero">
+        <div class="services-hero-overlay"></div>
+        <div class="services-hero-content container mx-auto px-4">
+            <span class="block text-brand-yellow font-bold uppercase tracking-widest mb-4 animate-fade-in-up">What We Offer</span>
+            <h1 class="text-5xl md:text-7xl font-heading font-bold mb-6 animate-fade-in-up delay-100">Excellence in Every <br> <span class="text-brand-yellow italic">Brushstroke</span></h1>
+            <div class="flex justify-center items-center gap-4 text-sm font-medium animate-fade-in-up delay-200">
+                <a href="index.html" class="hover:text-brand-yellow">Home</a>
+                <i class="fa-solid fa-chevron-right text-[10px]"></i>
+                <span class="text-gray-400">Our Services</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CORE SERVICES (BILY STYLE) ===== -->
+
+    <!-- 0. Domestic Painting -->
+    <section class="service-row-bily bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">Domestic Painting</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Our domestic painting services are designed to transform your living spaces into beautiful, welcoming homes. From meticulous surface preparation to the final coat, we treat every residence with the utmost care and respect. Whether you're looking for a modern refresh or a classic restoration, our team delivers flawless results that reflect your personal style and enhance your property's value.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="domestic-painting.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="lg:pl-10 order-1 lg:order-2">
+                    <div class="service-img-container frame-left">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper" id="lightgallery-domestic">
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-58-44 2.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-58-44 2.jpg" alt="Domestic Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-58-44 3.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-58-44 3.jpg" alt="Domestic Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-58-44.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-58-44.jpg" alt="Domestic Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3192.jpeg">
+                                    <img src="images/IMG_3192.jpeg" alt="Domestic Painting" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Interior Painting -->
+    <section class="service-row-bily">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="lg:pr-10">
+                    <div class="service-img-container frame-right">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3157.jpeg">
+                                    <img src="images/IMG_3157.jpeg" alt="Interior Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3182.jpeg">
+                                    <img src="images/IMG_3182.jpeg" alt="Interior Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-50-51.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-50-51.jpg" alt="Interior Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3184.jpeg">
+                                    <img src="images/IMG_3184.jpeg" alt="Interior Painting" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">Interior Painting</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Our internal and external painting services are designed to enhance the beauty and longevity of your property. We use high-quality paints and materials to deliver a stunning and durable finish that lasts, with a keen eye for detail. Whether you're looking to refresh a single room or transform your entire home, our experienced team provides professional advice and ensures a stress-free experience from start to finish.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="interior-painting.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Property Renovation -->
+    <section class="service-row-bily bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">Exterior Painting</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Protect and beautify your property's exterior with high-performance, weather-resistant coatings. Our expert team ensures thorough preparation and precision application to shield your building from the elements while significantly enhancing its curb appeal and value.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="exterior-painting.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="lg:pl-10 order-1 lg:order-2">
+                    <div class="service-img-container frame-left">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper" id="lightgallery-exterior">
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-40-26.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-40-26.jpg" alt="Exterior Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-49-02.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-49-02.jpg" alt="Exterior Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg">
+                                    <img src="images/House Painting Services Ryton - Johnson Decorators ltd.jpg" alt="Exterior Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/vanimage.jpeg">
+                                    <img src="images/vanimage.jpeg" alt="Exterior Painting" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATS DASHBOARD -->
+    <section class="stats-dashboard">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-12">
+                <div class="stat-item-bily">
+                    <i class="fa-solid fa-house-chimney"></i>
+                    <span class="block text-4xl font-black mb-2">28+</span>
+                    <span class="text-gray-400 font-bold text-xs uppercase tracking-widest">Flooring Projects</span>
+                </div>
+                <div class="stat-item-bily">
+                    <i class="fa-solid fa-paint-roller"></i>
+                    <span class="block text-4xl font-black mb-2">83+</span>
+                    <span class="text-gray-400 font-bold text-xs uppercase tracking-widest">Painting & Decorating</span>
+                </div>
+                <div class="stat-item-bily">
+                    <i class="fa-solid fa-kitchen-set"></i>
+                    <span class="block text-4xl font-black mb-2">7+</span>
+                    <span class="text-gray-400 font-bold text-xs uppercase tracking-widest">Kitchen Remodeling</span>
+                </div>
+                <div class="stat-item-bily">
+                    <i class="fa-solid fa-bed"></i>
+                    <span class="block text-4xl font-black mb-2">3+</span>
+                    <span class="text-gray-400 font-bold text-xs uppercase tracking-widest">Bedroom Remodeling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Woodwork & Wallpapering -->
+    <section class="service-row-bily">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="lg:pr-10">
+                    <div class="service-img-container frame-right">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper" id="lightgallery-wallpapering">
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3154.jpeg">
+                                    <img src="images/IMG_3154.jpeg" alt="Wallpapering" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3155.jpeg">
+                                    <img src="images/IMG_3155.jpeg" alt="Wallpapering" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3156.jpeg">
+                                    <img src="images/IMG_3156.jpeg" alt="Wallpapering" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3158.jpeg">
+                                    <img src="images/IMG_3158.jpeg" alt="Wallpapering" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">Wallpapering</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Our expert wallpapering services offer top-quality results for your home transformations. Whether you're looking to create a stunning feature wall or rejuvenate an entire room with elegant patterns, our skilled team is here to help. We use premium materials and precise techniques to ensure a flawless, bubble-free finish that lasts.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="wallpapering.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Flooring and Joinery -->
+    <section class="service-row-bily bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">Plastering</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Our professional plastering services are tailored to create a smooth, perfect foundation for your walls and ceilings. From repairing cracks and damage to full room skimming, we focus on durability, aesthetics, and meticulous workmanship. Our team ensures a professional finish that is ready for painting or wallpapering.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="plastering.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="lg:pl-10 order-1 lg:order-2">
+                    <div class="service-img-container frame-left">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper" id="lightgallery-plastering">
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3193.jpeg">
+                                    <img src="images/IMG_3193.jpeg" alt="Plastering" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/service-detail-decorative.png">
+                                    <img src="images/service-detail-decorative.png" alt="Plastering" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/master-artisan.png">
+                                    <img src="images/master-artisan.png" alt="Plastering" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Tiling Service -->
+    <section class="service-row-bily">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="lg:pr-10">
+                    <div class="service-img-container frame-right">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper" id="lightgallery-wood">
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-46-31.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-46-31.jpg" alt="Wood Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3194.jpeg">
+                                    <img src="images/IMG_3194.jpeg" alt="Wood Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/PHOTO-2026-03-12-11-54-32.jpg">
+                                    <img src="images/PHOTO-2026-03-12-11-54-32.jpg" alt="Wood Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/OFC.jpeg">
+                                    <img src="images/OFC.jpeg" alt="Wood Painting" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">Wood Painting</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Our specialized woodwork painting services help transform your home with stylish and durable finishes. Whether you're looking to refresh your kitchen cabinets, renovate your staircase, or add a protective coat to exterior woodwork, our skilled team is here to help you achieve your vision. We use premium paints and precise techniques for a professional finish that lasts.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="wood-painting.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Kitchen Remodeling -->
+    <section class="service-row-bily bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="order-2 lg:order-1">
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">School and Colleges Painting</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Our school and college painting services are tailored to create a functional, safe, and inspiring environment for students and staff. We work around academic schedules to minimize disruption, using durable and low-odor paints. Our team handles every aspect of your project with care, from classrooms and hallways to high-traffic communal areas.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="school-colleges-painting.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                <div class="lg:pl-10 order-1 lg:order-2">
+                    <div class="service-img-container frame-left">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper" id="lightgallery-schools">
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3190.jpeg">
+                                    <img src="images/IMG_3190.jpeg" alt="School Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3192.jpeg">
+                                    <img src="images/IMG_3192.jpeg" alt="School Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/OFC2.jpeg">
+                                    <img src="images/OFC2.jpeg" alt="School Painting" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- 7. Commercial Painting -->
+    <section class="service-row-bily">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="lg:pr-10">
+                    <div class="service-img-container frame-right">
+                        <div class="swiper service-swiper">
+                            <div class="swiper-wrapper" id="lightgallery-commercial">
+                                <div class="swiper-slide lightgallery-item" data-src="images/IMG_3191.jpeg">
+                                    <img src="images/IMG_3191.jpeg" alt="Commercial Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/OFC.jpeg">
+                                    <img src="images/OFC.jpeg" alt="Commercial Painting" loading="lazy">
+                                </div>
+                                <div class="swiper-slide lightgallery-item" data-src="images/OFC2.jpeg">
+                                    <img src="images/OFC2.jpeg" alt="Commercial Painting" loading="lazy">
+                                </div>
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h2 class="text-3xl font-heading font-bold text-brand-blue mb-6">Commercial Painting</h2>
+                    <p class="text-gray-600 leading-relaxed mb-8">
+                        Professional workspace refreshes that minimize disruption and maximize your brand environment. We provide high-quality commercial painting services for offices, retail spaces, and industrial properties, ensuring a professional finish that reflects your business excellence.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="contact.html" class="btn-bily-yellow">BOOK NOW</a>
+                        <a href="commercial-painting.html" class="btn-bily-blue">READ MORE <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE US (DARK SECTION) -->
+    <section class="why-us-bily">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-4xl font-heading font-bold mb-4">Why <span class="text-brand-yellow">Choose Us</span></h2>
+            <div class="w-20 h-1 bg-brand-yellow mx-auto mb-8"></div>
+            <p class="text-gray-400 max-w-2xl mx-auto mb-16">
+                Our unwavering commitment to excellence and reliability establishes us as the premier choice in the region. We prioritize customer satisfaction with every brushstroke.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
+                <div class="why-node">
+                    <i class="fa-solid fa-rocket"></i>
+                    <h4 class="text-xl font-bold mb-4">Engineering</h4>
+                    <p class="text-gray-500 text-sm">Our modern equipment and technical innovation ensure standard-defying results for your specific needs.</p>
+                </div>
+                <div class="why-node">
+                    <i class="fa-solid fa-brush"></i>
+                    <h4 class="text-xl font-bold mb-4">Quality Work</h4>
+                    <p class="text-gray-500 text-sm">We take pride in our precision craftsmanship and focus on long-term project protection and excellence.</p>
+                </div>
+                <div class="why-node">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h4 class="text-xl font-bold mb-4">100% insurance coverage</h4>
+                    <p class="text-gray-500 text-sm">All our work is fully insured, giving you total peace of mind for projects of all sizes.</p>
+                </div>
+                <div class="why-node">
+                    <i class="fa-solid fa-star"></i>
+                    <h4 class="text-xl font-bold mb-4">Best Quality</h4>
+                    <p class="text-gray-500 text-sm">Experience the best quality in town. We never compromise on materials or the final finish.</p>
+                </div>
+                <div class="why-node">
+                    <i class="fa-solid fa-users"></i>
+                    <h4 class="text-xl font-bold mb-4">Experienced Team</h4>
+                    <p class="text-gray-500 text-sm">Hand-picked decorators and joiners with years of expertise at your service.</p>
+                </div>
+                <div class="why-node">
+                    <i class="fa-solid fa-hard-hat"></i>
+                    <h4 class="text-xl font-bold mb-4">Safety</h4>
+                    <p class="text-gray-500 text-sm">Strict Health & Safety standards for a pristine and secure environment on every site.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PREMIUM FAQ SECTION ===== -->
+    <section class="py-24 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="text-brand-yellow font-bold uppercase tracking-widest mb-3 block">Help Center</span>
+                <h2 class="text-4xl md:text-5xl font-heading font-bold mb-4">Frequently Asked <span class="italic text-brand-blue">Questions</span></h2>
+                <div class="w-20 h-1 bg-brand-yellow mx-auto mb-6"></div>
+                <p class="text-gray-500 max-w-xl mx-auto">Providing clear answers to help you make informed decisions about your property’s transformation.</p>
+            </div>
+
+            <div class="faq-container-premium">
+                <!-- Item 1 -->
+                <div class="faq-item-premium">
+                    <button class="faq-trigger-premium">
+                        <span class="flex items-center">
+                            <span class="faq-q-badge">Q</span>
+                            How long does a typical interior project take?
+                        </span>
+                        <div class="faq-icon-box">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content-premium">
+                        <p>Most residential interior projects are completed within 3 to 5 business days. For larger estates or specialized decorative finishes like Venetian plaster, the timeline may extend to 7-10 days. We provide a guaranteed completion date before the first drop cloth is laid.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="faq-item-premium">
+                    <button class="faq-trigger-premium">
+                        <span class="flex items-center">
+                            <span class="faq-q-badge">Q</span>
+                            Do I need to move my furniture and cover floors?
+                        </span>
+                        <div class="faq-icon-box">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content-premium">
+                        <p>No, we handle the heavy lifting. Our team professionally moves your furniture to the center of the room and protects it with brand-new plastic sheeting. We also use heavy-duty canvas drop cloths and delicate-surface tape to ensure 100% protection for your flooring and fixtures.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="faq-item-premium">
+                    <button class="faq-trigger-premium">
+                        <span class="flex items-center">
+                            <span class="faq-q-badge">Q</span>
+                            What kind of paints and materials do you use?
+                        </span>
+                        <div class="faq-icon-box">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content-premium">
+                        <p>We pride ourselves on using only premium, designer-grade materials. This includes low-VOC, eco-friendly paints from leading brands that offer superior washability and color retention. For woodwork, we use high-performance satinwood and gloss finishes that resist yellowing over time.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="faq-item-premium">
+                    <button class="faq-trigger-premium">
+                        <span class="flex items-center">
+                            <span class="faq-q-badge">Q</span>
+                            Is Johnson Decorators fully insured and licensed?
+                        </span>
+                        <div class="faq-icon-box">
+                            <i class="fa-solid fa-chevron-down text-sm"></i>
+                        </div>
+                    </button>
+                    <div class="faq-content-premium">
+                        <p>Absolutely. We hold comprehensive Public Liability and Employer’s Liability insurance. Every team member is fully vetted and trained to our high standards of safety and professionalism. We believe in providing total peace of mind for every homeowner we serve.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Footer CTA -->
+            <div class="text-center mt-12">
+                <div class="faq-footer-cta">
+                    <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <div class="text-left">
+                        <h4 class="font-bold text-brand-dark">Still have questions?</h4>
+                        <p class="text-gray-500 text-sm">No problem! Reach out on WhatsApp for a quick response.</p>
+                    </div>
+                    <a href="https://wa.me/+447827931007" class="btn-bily-blue py-3 px-6 ml-4">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER SECTION ===== -->
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+
+                <!-- Column 1: Brand -->
+                <div class="animate-fade-in">
+                    <div class="footer-logo">
+                        <img src="images/logojn.png" alt="Johnson Decorators Logo" class="h-[120px] w-auto object-contain" loading="lazy">
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        We transform ordinary spaces into extraordinary masterpieces with premium materials, artistic
+                        precision, and unmatched professionalism.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jjohnsondecorators" target="_blank" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://uk.pinterest.com/johnsondecorators/" target="_blank" class="social-btn"><i class="fa-brands fa-pinterest"></i></a>
+                        <a href="https://wa.me/+447827931007" target="_blank" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" target="_blank" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Column 2: Services -->
+                <div>
+                    <h4 class="footer-heading">Our Services</h4>
+                    <a href="domestic-painting.html" class="footer-link">Domestic Painting</a>
+                    <a href="interior-painting.html" class="footer-link">Interior Painting</a>
+                    <a href="exterior-painting.html" class="footer-link">Exterior Painting</a>
+                    <a href="wallpapering.html" class="footer-link">Wallpapering</a>
+                    <a href="plastering.html" class="footer-link">Plastering</a>
+                    <a href="wood-painting.html" class="footer-link">Wood Painting</a>
+                    <a href="school-colleges-painting.html" class="footer-link">School and Colleges Painting</a>
+                    <a href="commercial-painting.html" class="footer-link">Commercial Painting</a>
+                </div>
+
+                <!-- Column 3: Quick Links -->
+                <div>
+                    <h4 class="footer-heading">Quick Links</h4>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="services.html" class="footer-link">Services</a>
+                    <a href="portfolio.html" class="footer-link">Portfolio</a>
+                    <a href="blog.html" class="footer-link">Blog</a>
+                    <a href="contact.html" class="footer-link">Contact Us</a>
+                    <a href="privacy-policy.html" class="footer-link">Privacy Policy</a>
+                    <a href="cookie-policy.html" class="footer-link">Cookie Policy</a>
+                    <a href="terms-and-conditions.html" class="footer-link">Terms of Service</a>
+                </div>
+
+                <!-- Column 4: Contact -->
+                <div>
+                    <h4 class="footer-heading">Get In Touch</h4>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span><a href="tel:+447827931007" class="hover:text-brand-yellow transition-colors">07827931007</a></span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>johnsondecoratorsltd@gmail.com</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>122 Grayling Wy, Ryton NE40 3BZ</span>
+                    </div>
+                    <div class="footer-contact-item">
+                        <i class="fa-solid fa-clock"></i>
+                        <span>Mon - Sat: 9:00 AM - 6:00 PM<br>Sunday: Closed</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Copyright Bar -->
+            <div class="footer-bottom">
+                <p class="text-xs">&copy; 2026 Johnson Decorators. All rights reserved.</p>
+                <p class="text-xs">Designed and Developed by <a href="https://kyleinfotech.co.in/" class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+            </div>
+        </div>
+    </footer>
+
+    
+
+    <!-- lightGallery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+        // Initialize lightGallery for Service Rows
+        document.querySelectorAll('.service-row-bily, .core-services-gallery').forEach(el => {
+            lightGallery(el, {
+                plugins: [lgZoom, lgThumbnail],
+                selector: '.lightgallery-item',
+                download: false,
+                speed: 500
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            icon.classList.toggle('fa-bars');
+            icon.classList.toggle('fa-xmark');
+        });
+
+        // FAQ Toggle Redesign
+        document.querySelectorAll('.faq-trigger-premium').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const parent = trigger.parentElement;
+                
+                // Close other items (optional, for accordion effect)
+                document.querySelectorAll('.faq-item-premium').forEach(item => {
+                    if (item !== parent) item.classList.remove('active');
+                });
+                
+                parent.classList.toggle('active');
+            });
+        });
+
+        // Initialize Service Swipers
+        const serviceSwipers = new Swiper('.service-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
+
+</body>
+
+</html>
+
+
+
+
+
+

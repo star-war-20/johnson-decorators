@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wallpapering Services | Johnson Decorators</title>
+    <meta name="description" content="Professional wallpapering services. Add texture and style to your home with expert installers.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-yellow': '#F5A623',
+                        'brand-dark': '#1a1a1a',
+                    },
+                    fontFamily: {
+                        'heading': ['Playfair Display', 'serif'],
+                        'body': ['Montserrat', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- lightGallery CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/css/lightgallery-bundle.min.css" />
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; font-size: 16px; background: #fafafa; color: #333; line-height: 1.6; }
+        .main-nav { background: #111; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.1); }
+        .service-hero { background: #111; padding: 60px 0; text-align: center; color: white; border-bottom: 4px solid #F5A623; }
+        .content-img { width: 100%; border-radius: 12px; margin-bottom: 30px; }
+        .sidebar-box { background: #fff; border-radius: 8px; border: 1px solid #eee; margin-bottom: 30px; overflow: hidden; }
+        .sidebar-title { background: #F5A623; color: #fff; padding: 15px 20px; font-weight: 700; }
+        .sidebar-list a { display: block; padding: 12px 20px; border-bottom: 1px solid #eee; color: #666; transition: 0.3s; }
+        .sidebar-list a:hover { color: #F5A623; padding-left: 25px; }
+        .main-footer { background: #111; color: #fff; padding: 80px 0 30px; }
+        .footer-link { display: block; color: #999; margin-bottom: 10px; transition: 0.3s; font-size: 16px; }
+        .footer-link:hover { color: #F5A623; }
+
+        /* Dropdown Styling */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #111111;
+            min-width: 260px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(15px);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-top: 3px solid #F5A623;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding: 12px 0;
+            z-index: 100;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .group:hover .nav-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .dropdown-link {
+            display: block;
+            padding: 12px 25px;
+            color: #999;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .dropdown-link:hover {
+            background: rgba(245, 166, 35, 0.08);
+            color: #F5A623;
+            padding-left: 32px;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="main-nav py-4">
+        <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <a href="index.html"><img src="images/logojn.png" alt="Logo" class="h-[130px]"></a>
+            <div class="hidden lg:flex space-x-8">
+                <a href="index.html" class="text-white hover:text-brand-yellow">Home</a>
+                <a href="about.html" class="text-white hover:text-brand-yellow">About Us</a>
+                
+                <!-- Services Dropdown -->
+                <div class="relative group flex items-center">
+                    <a href="services.html" class="text-brand-yellow flex items-center gap-2 no-underline">
+                        Services <i class="fa-solid fa-chevron-down text-[10px] transition-transform group-hover:rotate-180"></i>
+                    </a>
+                    <div class="nav-dropdown">
+                        <a href="domestic-painting.html" class="dropdown-link">Domestic Painting</a>
+                        <a href="commercial-painting.html" class="dropdown-link">Commercial Painting</a>
+                        <a href="interior-painting.html" class="dropdown-link">Interior Painting</a>
+                        <a href="exterior-painting.html" class="dropdown-link">Exterior Painting</a>
+                        <a href="wallpapering.html" class="dropdown-link">Wallpapering</a>
+                        <a href="plastering.html" class="dropdown-link">Plastering</a>
+                        <a href="wood-painting.html" class="dropdown-link">Wood Painting</a>
+                        <a href="school-colleges-painting.html" class="dropdown-link">Schools & Colleges</a>
+                    </div>
+                </div>
+
+                <a href="portfolio.html" class="text-white hover:text-brand-yellow">Portfolio</a>
+                <a href="blog.html" class="text-white hover:text-brand-yellow">Blog</a>
+                <a href="contact.html" class="text-white hover:text-brand-yellow">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="service-hero">
+        <h1 class="text-4xl md:text-5xl font-heading font-bold">Wallpapering Services</h1>
+        <p class="text-gray-400 mt-4">Elevating interiors with premium textures and artistic wallpaper installation.</p>
+    </section>
+
+    <section class="py-16">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-10">
+            <div class="lg:col-span-2">
+                    <div id="wallpaper-gallery" class="swiper service-swiper mb-8 rounded-xl overflow-hidden shadow-lg">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/IMG_3154.jpeg" class="lightgallery-item">
+                                    <img src="images/IMG_3154.jpeg" alt="Wallpaper Installation" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/IMG_3155.jpeg" class="lightgallery-item">
+                                    <img src="images/IMG_3155.jpeg" alt="Decorative Wallpaper" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/IMG_3156.jpeg" class="lightgallery-item">
+                                    <img src="images/IMG_3156.jpeg" alt="Living Room Wallpaper" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/PHOTO-2026-03-12-11-49-35.jpg" class="lightgallery-item">
+                                    <img src="images/PHOTO-2026-03-12-11-49-35.jpg" alt="Bedroom Wallpaper" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                            <div class="swiper-slide cursor-pointer">
+                                <a href="images/IMG_3158.jpeg" class="lightgallery-item">
+                                    <img src="images/IMG_3158.jpeg" alt="Feature Wall Wallpaper" class="w-full h-[450px] object-cover">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="swiper-pagination"></div>
+                    </div>
+                <h2 class="text-3xl font-heading font-bold mb-6">Expert Wallpaper Installation</h2>
+                <p class="mb-4">Wallpaper is a fantastic way to add character, texture, and a unique personality to any room. However, achieving a seamless finish requires precision and experience.</p>
+                <p class="mb-6">Our professional wallpaper hanging service covers everything from standard patterned wallpapers to luxury fabrics and high-end wallcoverings. We ensure every seam is invisible and every corner is perfect.</p>
+                
+                <h3 class="text-2xl font-heading font-bold mb-4">Our Specializations</h3>
+                <ul class="list-disc pl-6 mb-6 space-y-2">
+                    <li>Standard Patterned Wallpaper</li>
+                    <li>Feature Walls</li>
+                    <li>Luxury & Designer Wallcoverings</li>
+                    <li>Fabric-Backed Vinyls</li>
+                    <li>Lincrusta & Traditional Wallcoverings</li>
+                </ul>
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="sidebar-box">
+                    <div class="sidebar-title">Our Services</div>
+                    <div class="sidebar-list">
+                        <a href="interior-painting.html">Interior Painting</a>
+                        <a href="exterior-painting.html">Exterior Painting</a>
+                        <a href="wallpapering.html">Wallpapering</a>
+                        <a href="plastering.html">Plastering</a>
+                        <a href="wood-painting.html">Wood Painting</a>
+                        <a href="school-colleges-painting.html">School and Colleges Painting</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-4 gap-12">
+            <div>
+                <img src="images/logojn.png" alt="Logo" class="h-[120px] mb-6">
+                <p class="text-gray-400 text-sm">Transforming spaces with precision and passion. All Rights Reserved.</p>
+                <div class="flex gap-4 mt-4">
+                    <a href="https://www.instagram.com/johnsondecorators?igsh=bzhoN3pvaXJ6Z3Rh&utm_source=qr" class="text-white hover:text-brand-yellow text-xl"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.facebook.com/jjohnsondecorators" class="text-white hover:text-brand-yellow text-xl"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Services</h4>
+                <a href="interior-painting.html" class="footer-link">Interior Painting</a>
+                <a href="exterior-painting.html" class="footer-link">Exterior Painting</a>
+                <a href="wallpapering.html" class="footer-link">Wallpapering</a>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Company</h4>
+                <a href="about.html" class="footer-link">About Us</a>
+                <a href="services.html" class="footer-link">Services</a>
+                <a href="portfolio.html" class="footer-link">Portfolio</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+            <div>
+                <h4 class="font-bold mb-6">Contact Info</h4>
+                <p class="text-gray-400 text-sm mb-2"><i class="fa-solid fa-phone mr-2"></i> 07827931007</p>
+                <p class="text-gray-400 text-sm mb-2"><i class="fa-solid fa-envelope mr-2"></i> johnsondecoratorsltd@gmail.com</p>
+                <p class="text-gray-400 text-sm"><i class="fa-solid fa-location-dot mr-2"></i> 122 Grayling Wy, Ryton NE40 3BZ</p>
+            </div>
+        </div>
+        <div class="text-center mt-12 pt-8 border-t border-gray-800 text-gray-500 text-sm">
+            <p>&copy; 2026 Johnson Decorators. All Rights Reserved.</p>
+            <p>Design and Developed by <a href="https://kyleinfotech.co.in/" class="text-brand-yellow font-bold hover:underline" target="_blank">Kyle Infotech</a></p>
+        </div>
+    </footer>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- lightGallery JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.7.2/plugins/thumbnail/lg-thumbnail.min.js"></script>
+
+    <script>
+        // Initialize Swiper
+        const swiper = new Swiper('.service-swiper', {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+
+        // Initialize lightGallery
+        if (document.getElementById('wallpaper-gallery')) {
+            lightGallery(document.getElementById('wallpaper-gallery'), {
+                plugins: [lgZoom, lgThumbnail],
+                speed: 500,
+                download: false,
+                selector: '.lightgallery-item'
+            });
+        }
+    </script>
+</body>
+</html>
